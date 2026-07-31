@@ -893,8 +893,8 @@ footer {
   margin-top: auto;
   padding-top: 22px;
   font-family: var(--grotesque);
-  font-size: 11px;
-  letter-spacing: 0.22em;
+  font-size: 12px;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--muted);
 }
@@ -916,4 +916,392 @@ footer {
 
 .cta-section .eyebrow-2 {
   color: #cf8b52;
+}
+
+/* ==========================================================================
+   Journal — listing and article pages
+   Same tokens, same type roles. Nothing new is introduced here; the article
+   measure is tighter than the home page's because this is long-form reading.
+   ========================================================================== */
+
+/* --- Sub-page header ---------------------------------------------------- */
+
+/* The home page nav sits over a photograph. Journal pages have no hero, so the
+   same bar needs its own ground rather than a gradient over nothing. */
+.nav-solid {
+  position: static;
+  background: var(--ink);
+}
+
+.nav-solid .wordmark,
+.nav-solid nav a,
+.nav-solid .menu > summary {
+  color: var(--paper);
+}
+
+.breadcrumb {
+  padding: 34px var(--gutter) 0;
+  font-family: var(--grotesque);
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.breadcrumb {
+  /* The links inside need 44px of height; the bar keeps its visual weight by
+     pulling the extra padding back out again. */
+  margin-bottom: -12px;
+}
+
+.breadcrumb a {
+  color: var(--ochre-ink);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding-inline: 2px;
+}
+
+.breadcrumb a:hover {
+  border-bottom-color: var(--ochre-ink);
+}
+
+.breadcrumb span {
+  padding: 0 8px;
+  color: var(--line);
+}
+
+/* --- Article ------------------------------------------------------------ */
+
+.article {
+  padding: 44px var(--gutter) 0;
+}
+
+.article-head {
+  max-width: 46rem;
+  margin: 0 auto;
+}
+
+.article-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 18px;
+  align-items: baseline;
+  font-family: var(--grotesque);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ochre-ink);
+  margin-bottom: 22px;
+}
+
+.article-meta .dot {
+  color: var(--muted);
+}
+
+.article-meta .read {
+  color: var(--muted);
+  letter-spacing: 0.16em;
+}
+
+.article h1 {
+  font-size: clamp(2rem, 1.4rem + 2.4vw, 3.2rem);
+  line-height: 1.12;
+  letter-spacing: 0;
+}
+
+/* The standfirst carries the promise. It is the line that decides whether the
+   article gets read, so it sits larger than body and in the serif italic. */
+.standfirst {
+  margin-top: 24px;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(1.2rem, 1.05rem + 0.6vw, 1.5rem);
+  line-height: 1.5;
+  color: var(--ink);
+}
+
+.article-figure {
+  max-width: 75rem;
+  margin: 48px auto 0;
+}
+
+.article-figure img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.article-figure figcaption {
+  margin-top: 12px;
+  font-family: var(--grotesque);
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.article-body {
+  max-width: 38rem;
+  margin: 0 auto;
+  padding-block: 56px 0;
+}
+
+.article-body > * + * {
+  margin-top: 1.35em;
+}
+
+.article-body p {
+  font-size: clamp(1.02rem, 0.98rem + 0.2vw, 1.15rem);
+  line-height: 1.78;
+  color: #302c26;
+}
+
+.article-body h2 {
+  font-size: clamp(1.5rem, 1.3rem + 0.9vw, 2rem);
+  text-transform: none;
+  letter-spacing: 0;
+  margin-top: 2.4em;
+}
+
+.article-body h3 {
+  font-family: var(--grotesque);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ochre-ink);
+  margin-top: 2.2em;
+}
+
+.article-body ul,
+.article-body ol {
+  padding-left: 1.15rem;
+  color: #302c26;
+}
+
+.article-body li {
+  font-size: clamp(1.02rem, 0.98rem + 0.2vw, 1.15rem);
+  line-height: 1.7;
+  margin-top: 0.6em;
+}
+
+.article-body li::marker {
+  color: var(--ochre-ink);
+}
+
+.article-body strong {
+  font-weight: 400;
+  border-bottom: 1px solid var(--ochre);
+}
+
+.pull {
+  margin-top: 2.4em;
+  padding-left: 1.4rem;
+  border-left: 2px solid var(--ochre);
+  font-family: var(--serif);
+  font-size: clamp(1.25rem, 1.1rem + 0.7vw, 1.6rem);
+  line-height: 1.45;
+}
+
+/* --- Fact panel --------------------------------------------------------- */
+
+/* Long-form loses skimmers. The panel gives them the numbers without reading
+   the prose, and it is the same definition-list pattern as commission terms. */
+.facts {
+  margin-top: 2.6em;
+  padding: 30px 28px;
+  background: var(--stone);
+}
+
+.facts .facts-title {
+  font-family: var(--grotesque);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 18px;
+}
+
+.facts dl {
+  margin: 0;
+  display: grid;
+  gap: 0;
+}
+
+.facts dl > div {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 6px 20px;
+  align-items: baseline;
+  padding: 11px 0;
+  border-top: 1px solid var(--line);
+}
+
+.facts dl > div:first-child {
+  border-top: 0;
+}
+
+.facts dt {
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+.facts dd {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+/* --- In-article prompt -------------------------------------------------- */
+
+/* One soft prompt mid-article. Not a banner: a line of type and a link, so it
+   reads as an aside rather than an interruption. */
+.aside-cta {
+  margin-top: 2.6em;
+  padding: 24px 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.aside-cta p {
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.aside-cta a {
+  color: var(--ochre-ink);
+  text-decoration: none;
+  border-bottom: 1px solid var(--ochre);
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+}
+
+/* --- Closing conversion block ------------------------------------------ */
+
+.article-close {
+  margin-top: 84px;
+  background: var(--ink);
+  color: var(--paper);
+  padding: clamp(3.5rem, 8vh, 6rem) var(--gutter);
+  text-align: center;
+}
+
+.article-close .inner {
+  max-width: 40rem;
+  margin: 0 auto;
+}
+
+.article-close .eyebrow-2 {
+  color: #cf8b52;
+}
+
+.article-close h2 {
+  color: var(--paper);
+  font-size: clamp(1.6rem, 1.3rem + 1.4vw, 2.4rem);
+}
+
+.article-close p {
+  margin-top: 20px;
+  color: #cfc9bc;
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.article-close .price-line {
+  margin-top: 26px;
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  color: var(--paper);
+}
+
+.article-close .fineprint {
+  margin-top: 14px;
+  font-size: 0.85rem;
+  color: #9c968a;
+}
+
+/* --- Related ------------------------------------------------------------ */
+
+.related {
+  padding: clamp(3.5rem, 8vh, 6rem) var(--gutter);
+}
+
+.related-head {
+  max-width: 75rem;
+  margin: 0 auto 34px;
+}
+
+/* --- Journal listing ---------------------------------------------------- */
+
+.listing {
+  padding: 40px var(--gutter) 0;
+}
+
+.listing-head {
+  max-width: 46rem;
+  margin: 0 auto 54px;
+}
+
+.listing-head h1 {
+  font-size: clamp(2rem, 1.5rem + 2.2vw, 3rem);
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+}
+
+/* Cards become links on the listing and in Related, so the whole card is the
+   target rather than the headline alone. */
+a.j-card {
+  text-decoration: none;
+  color: inherit;
+  transition: background-color 0.25s ease;
+}
+
+a.j-card:hover {
+  background: var(--stone);
+}
+
+a.j-card h3 {
+  text-decoration: underline;
+  text-decoration-color: var(--line);
+  text-underline-offset: 3px;
+}
+
+a.j-card:hover h3 {
+  text-decoration-color: var(--ochre);
+}
+
+.j-card .j-more {
+  margin-top: 14px;
+  font-family: var(--grotesque);
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ochre-ink);
+}
+
+.journal-lede {
+  margin-top: 20px;
+  max-width: 38rem;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--muted);
+}
+
+.journal-lede a {
+  color: var(--ochre-ink);
+  text-decoration: none;
+  border-bottom: 1px solid var(--ochre);
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding-inline: 2px;
 }

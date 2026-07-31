@@ -94,6 +94,8 @@ web/
   styles.css                Paper / ink / ochre, no dependencies
   build-images.py           Regenerates web derivatives from the masters
   build-og.py               Regenerates the 1200x630 social share image
+  build-journal.py          Generates the Journal listing and four article pages
+  journal/                  Generated. Listing plus one page per article
   ASSET-CLEARANCE.md        Per-render trademark status. Read before launch
   assets/renders/           Eleven masters: six cleared, five awaiting retouching
   assets/img/               Generated WebP and JPEG, two widths
@@ -117,6 +119,7 @@ node model/model.mjs --write      # also regenerate model/output.md
 python3 -m http.server -d web 8000   # preview the site at localhost:8000
 python3 web/build-images.py          # rebuild image derivatives (needs Pillow)
 python3 web/build-og.py              # rebuild the social share image
+python3 web/build-journal.py         # rebuild the Journal pages
 ```
 
 The model has no dependencies. `web/build-images.py` needs Pillow.
