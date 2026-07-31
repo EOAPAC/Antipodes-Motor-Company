@@ -1,0 +1,17 @@
+# OS / editor noise
+.DS_Store
+Thumbs.db
+*.swp
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Node
+node_modules/
+
+# Note: model/output.md and web/assets/img/ are generated but ARE committed
+# deliberately. output.md so the numbers are reviewable without running Node,
+# and assets/img so the site is deployable as-is.
