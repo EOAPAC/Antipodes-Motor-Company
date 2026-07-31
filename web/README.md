@@ -87,6 +87,26 @@ set type in `--ochre`.
 cannot be guaranteed by the palette. Each has a translucent ink background rather
 than relying on a text shadow over an unknown image.
 
+## The Journal
+
+Five pages under `/journal/`, generated:
+
+```sh
+python3 web/build-journal.py
+```
+
+The copy lives in `build-journal.py`, not in the HTML, because five pages share
+one template and the design system would otherwise drift between them. Edit the
+copy there and regenerate; the generated files carry a comment saying so.
+
+Routes rely on `cleanUrls` in `vercel.json`, so
+`/journal/six-materials-that-improve-with-miles` serves the `.html` file. Links
+in the markup are written extensionless to match.
+
+Each article's factual claims are traced to a section of
+`reference/plan-v4-master.md`, recorded in the `sources` field of its entry. If a
+claim changes in the plan, the article needs revisiting.
+
 ## Design
 
 Art direction per `docs/04-brand-clearance.md`: charcoal `#14150F` ground, bone
