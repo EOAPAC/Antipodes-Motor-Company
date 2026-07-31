@@ -18,6 +18,7 @@ Everything here is deliberately reversible.
 | What to do in the next 90 days | `docs/06-90-day-plan.md` |
 | What is still unanswered | `docs/07-open-questions.md` |
 | The adopted brand direction and voice | `docs/09-brand-direction.md` |
+| Why the published prices contradict the plan | `decisions/ADR-0007` |
 | Which renders can be published, and which cannot | `web/ASSET-CLEARANCE.md` |
 
 ## The three findings that matter
@@ -84,7 +85,8 @@ decisions/
   ADR-0003  Equity split and labour rate settled together   [blocks Gate 1]
   ADR-0004  ATO private ruling on LCT                        [blocks Gate 1]
   ADR-0005  Two commission tiers  [superseded by 0006]
-  ADR-0006  One published commission, ladder kept internal
+  ADR-0006  One published commission, ladder kept internal  [superseded by 0007]
+  ADR-0007  Publish the full ladder. Overrules the plan's no-pricing rule
 model/
   model.mjs                 Runnable model. Ten sections, every input sourced
   output.md                 Generated report, committed so it is reviewable
@@ -94,7 +96,9 @@ web/
   styles.css                Paper / ink / ochre, no dependencies
   build-images.py           Regenerates web derivatives from the masters
   build-og.py               Regenerates the 1200x630 social share image
-  build-journal.py          Generates the Journal listing and four article pages
+  build-pages.py            Generates the Journal, the articles and /commission/
+  pages_commission.py       The published price ladder, options, stages and FAQs
+  commission/               Generated. The price page and the enquiry form
   journal/                  Generated. Listing plus one page per article
   ASSET-CLEARANCE.md        Per-render trademark status. Read before launch
   assets/renders/           Eleven masters: six cleared, five awaiting retouching
@@ -119,7 +123,7 @@ node model/model.mjs --write      # also regenerate model/output.md
 python3 -m http.server -d web 8000   # preview the site at localhost:8000
 python3 web/build-images.py          # rebuild image derivatives (needs Pillow)
 python3 web/build-og.py              # rebuild the social share image
-python3 web/build-journal.py         # rebuild the Journal pages
+python3 web/build-pages.py           # rebuild the Journal and /commission/
 ```
 
 The model has no dependencies. `web/build-images.py` needs Pillow.

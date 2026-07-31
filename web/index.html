@@ -8,9 +8,10 @@
   NOT adopted: its reversion to the charcoal palette. The cooler-bone ground
   stands (docs/09-brand-direction.md).
 
-  Commission pricing is published per reference/plan-v4-master.md section 6.3,
-  which sets client-facing language as a single numbered commission rather than
-  a tier grid. The internal Stack A/B/C cost stacks stay internal.
+  Commission pricing: the full ladder is published, at /commission/. This
+  overrules plan-v4-master.md section 5.6 rule 4 and ADR-0006 on the founder's
+  instruction; see decisions/ADR-0007. The block below is the summary that earns
+  the click, and it is one of only two places in the repo a price appears.
 
   Four of the eleven renders still carry Porsche badging; see ASSET-CLEARANCE.md.
   Two badged masters were retired this pass, superseded by clean equivalents.
@@ -96,7 +97,7 @@
     <a class="skip" href="#philosophy">Skip to content</a>
 
     <nav aria-label="Primary">
-      <a class="wordmark" href="#top">Antipode Motor Co.</a>
+      <a class="wordmark" href="#top" aria-current="page">Antipode Motor Co.</a>
       <!--
         A disclosure rather than a hidden list. Below 46rem the inline links used
         to be display:none, which left the page with no navigation on a phone.
@@ -109,7 +110,7 @@
           <li><a href="#build">The Build</a></li>
           <li><a href="#places">The Places</a></li>
           <li><a href="journal/">Journal</a></li>
-          <li><a href="#commission">Commission</a></li>
+          <li><a href="commission/">Commission &amp; Pricing</a></li>
         </ul>
       </details>
     </nav>
@@ -578,23 +579,32 @@ It is discovered over time.</p>
         </ol>
 
         <!--
-          Published per plan-v4-master.md 6.3: client-facing language is a single
-          numbered commission, not a tier grid. The internal Stack A/B/C cost
-          stacks are not shown. Founders-series pricing is a commercial choice
-          the founders can remove by deleting one row.
+          plan-v4-master.md 5.6 rule 4 ("no pricing is ever published") and
+          ADR-0005/0006 are overruled by ADR-0007 on the founder's instruction.
+          The full ladder is client-facing at /commission/; this block is the
+          summary that earns the click, so it carries the three headline prices
+          and nothing that needs a footnote.
         -->
         <div class="terms">
           <p class="eyebrow-2">Commission Terms</p>
           <dl>
             <div>
-              <dt>Foundation commission</dt>
-              <dd><b>From A$975,000</b>, excluding the donor car.</dd>
+              <dt>Foundation</dt>
+              <dd><b>A$975,000</b>, excluding the donor car.</dd>
+            </div>
+            <div>
+              <dt>Grande Travers&eacute;e</dt>
+              <dd><b>A$1,150,000</b>, ex-donor.</dd>
+            </div>
+            <div>
+              <dt>Signature</dt>
+              <dd><b>From A$1,600,000</b>, ex-donor.</dd>
             </div>
             <div>
               <dt>Founders series</dt>
               <dd>
                 The first three commissions are offered at
-                <b>A$895,000</b>, ex-donor.
+                <b>A$895,000</b>, at Foundation specification.
               </dd>
             </div>
             <div>
@@ -607,22 +617,8 @@ It is discovered over time.</p>
             <div>
               <dt>Payment</dt>
               <dd>
-                A commissioning deposit, then staged against milestones you sign
-                off in the workshop. Never ahead of the work.
-              </dd>
-            </div>
-            <div>
-              <dt>Ownership programme</dt>
-              <dd>
-                A$18,000 a year. Annual service, agreed-value revaluation,
-                registry privileges and the owners' events.
-              </dd>
-            </div>
-            <div>
-              <dt>Beyond the foundation</dt>
-              <dd>
-                Longer-range touring specifications, bespoke bodywork and export
-                homologation are quoted privately, per commission.
+                A$100,000 on signing, then staged against milestones you sign off
+                in the workshop. Never ahead of the work.
               </dd>
             </div>
           </dl>
@@ -630,11 +626,18 @@ It is discovered over time.</p>
             Every commission is numbered and entered in the registry. No
             specification is repeated.
           </p>
+          <a class="btn btn-dark" href="commission/"
+            >See what is included at each level</a
+          >
+          <p class="alt-contact">
+            Or read the answers to
+            <a href="commission/#faq">the questions everyone asks</a> first.
+          </p>
         </div>
       </section>
 
       <section id="journal">
-        <div class="wrap-wide journal">
+        <div class="wrap-wide">
           <p class="eyebrow-2">The Journal</p>
           <h2>Notes from the long way home.</h2>
           <p class="journal-lede">
@@ -674,6 +677,11 @@ It is discovered over time.</p>
         </div>
       </section>
 
+      <!--
+        One destination, not two. The form lives on /commission/, below the
+        prices, because an enquiry made after the number is answered is worth
+        more than one made before it. The mail address stays as a fallback.
+      -->
       <section id="enquire" class="cta-section">
         <div class="wrap">
           <p class="eyebrow-2">Private Enquiries</p>
@@ -681,9 +689,13 @@ It is discovered over time.</p>
 <p class="verse">A limited number of private commissions are now being considered.
 
 Tell us where you would take yours.</p>
-          <a class="btn" href="mailto:commissions@antipodemotor.com"
-            >Request a Private Conversation</a
-          >
+          <a class="btn" href="commission/#enquire">Begin an enquiry</a>
+          <p class="alt-contact alt-contact--dark">
+            No deposit, no obligation. Prefer email?
+            <a href="mailto:commissions@antipodemotor.com"
+              >commissions@antipodemotor.com</a
+            >
+          </p>
         </div>
       </section>
     </main>

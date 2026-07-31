@@ -87,17 +87,26 @@ set type in `--ochre`.
 cannot be guaranteed by the palette. Each has a translucent ink background rather
 than relying on a text shadow over an unknown image.
 
-## The Journal
+## Generated pages
 
-Five pages under `/journal/`, generated:
+Six pages, five under `/journal/` and one at `/commission/`:
 
 ```sh
-python3 web/build-journal.py
+python3 web/build-pages.py
 ```
 
-The copy lives in `build-journal.py`, not in the HTML, because five pages share
-one template and the design system would otherwise drift between them. Edit the
-copy there and regenerate; the generated files carry a comment saying so.
+The copy lives in `build-pages.py`, not in the HTML, because the pages share one
+shell and the design system would otherwise drift between them. Edit the copy
+there and regenerate; the generated files carry a comment saying so.
+
+The Commission page is large enough to have its own module,
+`web/pages_commission.py`, which holds every published figure as module-level
+data and takes the shared `head`/`nav`/`footer`/`form` builders as arguments. So
+there is exactly one enquiry form and one nav in the codebase, and one file to
+edit if a price changes.
+
+`web/index.html` stays hand-authored. It is the only page that is not a
+variation on a template, and generating it would cost more than it saved.
 
 Routes rely on `cleanUrls` in `vercel.json`, so
 `/journal/six-materials-that-improve-with-miles` serves the `.html` file. Links
