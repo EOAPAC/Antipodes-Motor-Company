@@ -35,11 +35,9 @@ OUT = HERE / "assets" / "img"
 # Fraction trimmed off the bottom, per master stem. Anything absent gets no crop.
 # Only the watermarked masters appear here; the v4 set is clean and stays whole.
 CROP_BOTTOM = {
-    "coast-dusk-motion": 0.07,
     "forest-bone-front": 0.07,
     "interior-cognac": 0.07,
     "outback-basalt-front": 0.07,
-    "workshop-bone-rear": 0.07,
     "interior-tan": 0.045,  # faint mark at the very bottom edge only
 }
 DEFAULT_CROP = 0.0

@@ -1,21 +1,19 @@
 <!DOCTYPE html>
 <!--
   Antipode Motor Co. — brand site
-  Creative direction as supplied: cinematic, editorial, no spec sheets, no price
-  tables, no transactional language.
 
-  Two deliberate departures from the supplied file, both documented:
-  1. The S3 image URLs are replaced with local assets. Upload-bucket links rot,
-     and a repo that depends on them stops rendering. Assets now live in
-     web/assets/ and are built by web/build-images.py.
-  2. A non-affiliation disclaimer is added to the footer. The supplied footer had
-     none. Section 2 of reference/plan-v3-master.md requires the disclaimer
-     regime before launch, and the Singer dispute turned on exactly this wording.
+  Cherry-picked from the Kimi v4 concept (reference/kimi-concept-v4.html):
+  the .verse pre-line copy blocks, section eyebrows, the Journal, described
+  commissioning steps including "The Road Ahead", and the three-beat hero.
+  NOT adopted: its reversion to the charcoal palette. The cooler-bone ground
+  stands (docs/09-brand-direction.md).
 
-  Six of the ten renders still carry Porsche badging; see web/ASSET-CLEARANCE.md
-  for the register and what each one needs. Indexing was previously gated on that
-  register and has been opened on the founders' instruction, so the page is now
-  publicly indexable. The share image deliberately uses a cleared render.
+  Commission pricing is published per reference/plan-v4-master.md section 6.3,
+  which sets client-facing language as a single numbered commission rather than
+  a tier grid. The internal Stack A/B/C cost stacks stay internal.
+
+  Four of the eleven renders still carry Porsche badging; see ASSET-CLEARANCE.md.
+  Two badged masters were retired this pass, superseded by clean equivalents.
 -->
 <html lang="en-AU">
   <head>
@@ -23,26 +21,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!-- Category first, brand last: the search terms with volume are
          "porsche restomod australia" and "air-cooled 911 restomod", and the
-         brand has no recognition to trade on yet. 61 characters, so it does not
-         truncate in results. -->
+         brand has no recognition to trade on yet. 61 characters. -->
     <title>Air-Cooled Porsche 911 Restomods, Sydney | Antipode Motor Co.</title>
     <meta
       name="description"
-      content="Bespoke air-cooled Porsche 911 commissions, built by hand in Sydney and engineered for Australian heat, distance and coarse roads. A few cars a year."
+      content="Bespoke air-cooled Porsche 911 commissions from A$975,000, built by hand in Sydney and engineered for Australian heat, distance and coarse roads."
     />
     <link rel="canonical" href="/" />
     <meta name="theme-color" content="#edeee8" />
 
-    <!-- Open Graph. Relative image paths resolve against the document URL in
-         every major scraper, which means these keep working on the Vercel
-         preview domain and on the final domain without an edit. -->
+    <!-- Relative image paths resolve against the document URL in every major
+         scraper, so these keep working on any domain without an edit. -->
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Antipode Motor Co." />
     <meta property="og:locale" content="en_AU" />
     <meta property="og:title" content="Cars for roads that are worth the drive." />
     <meta
       property="og:description"
-      content="Antipode creates deeply personal air-cooled commissions: restored with patience, shaped by place, and made for the long way home. Built by hand in Sydney."
+      content="Antipode creates deeply personal air-cooled commissions: restored with patience, shaped by place, and made for the long way home. From A$975,000."
     />
     <meta property="og:image" content="/assets/og/antipode-og.jpg" />
     <meta property="og:image:width" content="1200" />
@@ -56,12 +52,10 @@
     <meta name="twitter:title" content="Cars for roads that are worth the drive." />
     <meta
       name="twitter:description"
-      content="Bespoke air-cooled 911 commissions, built by hand in Sydney and made for the long way home."
+      content="Bespoke air-cooled 911 commissions from A$975,000, built by hand in Sydney and made for the long way home."
     />
     <meta name="twitter:image" content="/assets/og/antipode-og.jpg" />
 
-    <!-- The hero is the largest contentful paint. Preloading the same srcset the
-         markup uses lets the browser start it before the CSS resolves. -->
     <link
       rel="preload"
       as="image"
@@ -75,10 +69,8 @@
     />
     <link rel="stylesheet" href="styles.css" />
 
-    <!-- Only facts that are actually established are asserted here. No url,
-         logo, telephone or ABN: the domain is not secured and the operating
-         entity is unconfirmed (docs/07-open-questions.md, Q7 and Q8). Adding
-         them before they are true would be worse than omitting them. -->
+    <!-- Only established facts. No url, logo, telephone or ABN: the domain is
+         not secured and the operating entity is unconfirmed (Q7, Q8). -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -107,16 +99,16 @@
       <a class="wordmark" href="#top">Antipode Motor Co.</a>
       <!--
         A disclosure rather than a hidden list. Below 46rem the inline links used
-        to be display:none, which left the page with no navigation at all on a
-        phone. <details> gives a real menu with no JavaScript, keyboard support
-        and correct expanded state for free.
+        to be display:none, which left the page with no navigation on a phone.
       -->
       <details class="menu">
         <summary>Menu</summary>
         <ul>
           <li><a href="#philosophy">Philosophy</a></li>
-          <li><a href="#the-car">The Car</a></li>
-          <li><a href="#places">Places</a></li>
+          <li><a href="#car">The Car</a></li>
+          <li><a href="#build">The Build</a></li>
+          <li><a href="#places">The Places</a></li>
+          <li><a href="#journal">Journal</a></li>
           <li><a href="#commission">Commission</a></li>
         </ul>
       </details>
@@ -147,32 +139,59 @@
         />
       </picture>
       <div class="hero-copy">
-        <p class="eyebrow">Engineered for the other side of the world.</p>
-        <h1>Cars for roads that are worth the drive.</h1>
-        <p>
+        <p class="eyebrow">Antipode Motor Co.</p>
+        <h1>Engineered for the other side of the world.</h1>
+        <p class="hero-sub">Cars for roads that are worth the drive.</p>
+        <p class="hero-body">
           Antipode creates deeply personal air-cooled commissions: restored with
           patience, shaped by place, and made for the long way home.
         </p>
-        <a class="btn" href="#enquiry">Begin a Private Commission</a>
+        <a class="btn" href="#commission">Begin a Private Commission</a>
       </div>
     </header>
 
     <main>
       <section id="philosophy">
-        <div class="section-head left">
-          <div class="rule"></div>
+        <div class="wrap">
+          <p class="eyebrow-2">The Philosophy</p>
           <h2>The road is part of the design.</h2>
-          <p class="lead">
-            Australia changes quickly beneath a car.<span class="para-break"
-            ></span><br /><br />One hour, salt air and a coastal horizon.<br />The
-            next, rain in the trees. Heat on the plain.<br />A surface that asks
-            more of the suspension, the cooling,<br />the seats and the person
-            behind the wheel.<span class="para-break"></span><br /><br />Antipode
-            begins there.<span class="para-break"></span><br /><br />We take the
-            enduring shape of an air-cooled 911 and<br />make it feel entirely at
-            home on this side of the world.<br />Not as a replica of the past,
-            but as a car with many more<br />miles ahead of it.
-          </p>
+<p class="verse">Australia changes quickly beneath a car.
+
+One hour, salt air and a coastal horizon.
+The next, rain in the trees. Heat on the plain.
+A surface that asks more of the suspension, the cooling,
+the seats and the person behind the wheel.
+
+<strong>Antipode begins there.</strong>
+
+We take the enduring shape of an air-cooled 911 and
+make it feel entirely at home on this side of the world.
+Not as a replica of the past, but as a car with many more
+miles ahead of it.</p>
+        </div>
+
+        <div class="wrap-wide principles">
+          <article class="principle">
+            <h3>Distance</h3>
+            <p>
+              Built for early departures, long lunches, changing weather and
+              roads that continue after the map becomes less certain.
+            </p>
+          </article>
+          <article class="principle">
+            <h3>Feel</h3>
+            <p>
+              The weight of the steering. The sound behind you. The click of a
+              switch. The details that make a drive memorable.
+            </p>
+          </article>
+          <article class="principle">
+            <h3>Belonging</h3>
+            <p>
+              Each commission is shaped around its owner, then finished to belong
+              to a particular life, collection and corner of the world.
+            </p>
+          </article>
         </div>
       </section>
 
@@ -201,69 +220,42 @@
         />
       </picture>
 
-      <section>
-        <div class="wrap pillars">
-          <div class="pillar">
-            <h3>Distance</h3>
-            <p>
-              Built for early departures, long lunches, changing weather and
-              roads that continue after the map becomes less certain.
-            </p>
-          </div>
-          <div class="pillar">
-            <h3>Feel</h3>
-            <p>
-              The weight of the steering. The sound behind you. The click of a
-              switch. The details that make a drive memorable.
-            </p>
-          </div>
-          <div class="pillar">
-            <h3>Belonging</h3>
-            <p>
-              Each commission is shaped around its owner, then finished to belong
-              to a particular life, collection and corner of the world.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section id="the-car" style="background: var(--stone)">
-        <div class="section-head left">
-          <div class="rule"></div>
+      <section id="car">
+        <div class="wrap">
+          <p class="eyebrow-2">The Car</p>
           <h2>A familiar shape.<br />A different sense of place.</h2>
-          <p class="lead">
-            Every Antipode begins with a 1979&ndash;1985 air-cooled 911.<span
-              class="para-break"
-            ></span><br /><br />The proportions remain recognisable: compact,
-            upright, unmistakable. But the experience becomes more complete.<br />The
-            car is restored in its entirety, reconsidered in detail, and tuned to
-            become more involving with every kilometre.<span
-              class="para-break"
-            ></span><br /><br />Nothing is added simply to announce itself.<br />Everything
-            is considered because it will be touched, heard, seen or relied upon.
-          </p>
+<p class="verse">Every Antipode begins with a 1979 to 1985 air-cooled 911.
+
+The proportions remain recognisable: compact, upright,
+unmistakable. But the experience becomes more complete.
+The car is restored in its entirety, reconsidered in detail,
+and tuned to become more involving with every kilometre.
+
+<strong>Nothing is added simply to announce itself.</strong>
+Everything is considered because it will be touched, heard,
+seen or relied upon.</p>
         </div>
 
-        <div class="car-grid">
+        <div class="two-col">
           <picture>
             <source
               type="image/webp"
               srcset="
-                assets/img/workshop-bone-rear@900.webp  900w,
-                assets/img/workshop-bone-rear.webp     1600w
+                assets/img/workshop-bone-rear-v2@900.webp  900w,
+                assets/img/workshop-bone-rear-v2.webp     1600w
               "
               sizes="(max-width: 820px) 92vw, 46vw"
             />
             <img
-              src="assets/img/workshop-bone-rear@900.jpg"
+              src="assets/img/workshop-bone-rear-v2@900.jpg"
               srcset="
-                assets/img/workshop-bone-rear@900.jpg  900w,
-                assets/img/workshop-bone-rear.jpg     1600w
+                assets/img/workshop-bone-rear-v2@900.jpg  900w,
+                assets/img/workshop-bone-rear-v2.jpg     1600w
               "
               sizes="(max-width: 820px) 92vw, 46vw"
-              alt="Rear three-quarter view of an Antipode commission in the workshop under warm light."
+              alt="Rear three-quarter of a bone Antipode commission at rest in the workshop, carbon ducktail and bronze wheels."
               width="900"
-              height="471"
+              height="479"
               loading="lazy"
               decoding="async"
             />
@@ -293,34 +285,75 @@
           </picture>
         </div>
 
-        <div class="spec-band">
-          <div class="spec">
-            <b>Air-Cooled</b>
-            <p>A mechanical conversation, not a simulation.</p>
+        <dl class="band">
+          <div>
+            <dt>Air-Cooled</dt>
+            <dd>A mechanical conversation, not a simulation.</dd>
           </div>
-          <div class="spec">
-            <b>One Owner</b>
-            <p>A commission developed around a single point of view.</p>
+          <div>
+            <dt>One Owner</dt>
+            <dd>A commission developed around a single point of view.</dd>
           </div>
-          <div class="spec">
-            <b>Made to Go</b>
-            <p>Created for the journey beyond the handover.</p>
+          <div>
+            <dt>Made to Go</dt>
+            <dd>Created for the journey beyond the handover.</dd>
           </div>
+        </dl>
+      </section>
+
+      <section id="build">
+        <div class="wrap">
+          <p class="eyebrow-2">The Build</p>
+          <h2>One workshop. One standard.</h2>
+<p class="verse">Every commission is built in one workshop in Artarmon, Sydney,
+by technicians you can meet.
+
+It begins as a bare shell. Four decades of wear are corrected,
+every known weakness of the car is resolved, and the whole
+is reassembled by the same hands that took it apart.
+
+<strong>You are welcome at any stage.</strong>
+Most owners come more than once. That is the point.</p>
         </div>
+
+        <picture>
+          <source
+            type="image/webp"
+            srcset="
+              assets/img/workshop-lift-grey@900.webp  900w,
+              assets/img/workshop-lift-grey.webp     1600w
+            "
+            sizes="(max-width: 1200px) 100vw, 1200px"
+          />
+          <img
+            src="assets/img/workshop-lift-grey.jpg"
+            srcset="
+              assets/img/workshop-lift-grey@900.jpg  900w,
+              assets/img/workshop-lift-grey.jpg     1600w
+            "
+            sizes="(max-width: 1200px) 100vw, 1200px"
+            alt="A finished grey Antipode commission raised on a workshop lift, with the bare shell of the next car behind it."
+            width="1600"
+            height="851"
+            class="plate-wide"
+            loading="lazy"
+            decoding="async"
+          />
+        </picture>
       </section>
 
       <section id="places">
-        <div class="section-head">
-          <div class="rule"></div>
+        <div class="wrap">
+          <p class="eyebrow-2">The Places</p>
           <h2>The continent in the car.</h2>
-          <p class="lead-center">
-            The coast after rain. Eucalypt forest before sunrise.<br />A red road
-            at the end of a long day.<span class="para-break"></span><br /><br />Antipode
-            is not defined by one landscape.<br />It is defined by the change
-            between them.<span class="para-break"></span><br /><br />That is
-            where these cars make sense:<br />not under lights, but in the space
-            between one place and the next.
-          </p>
+<p class="verse">The coast after rain. Eucalypt forest before sunrise.
+A red road at the end of a long day.
+
+Antipode is not defined by one landscape.
+It is defined by the change between them.
+
+<strong>That is where these cars make sense:</strong>
+not under lights, but in the space between one place and the next.</p>
         </div>
 
         <div class="gallery">
@@ -400,7 +433,7 @@
                 decoding="async"
               />
             </picture>
-            <figcaption>The Interior / Late Afternoon</figcaption>
+            <figcaption>Inland / Late Afternoon</figcaption>
           </figure>
           <figure class="g-wide">
             <picture>
@@ -432,17 +465,19 @@
       </section>
 
       <section id="details">
-        <div class="section-head left">
-          <div class="rule"></div>
+        <div class="wrap">
+          <p class="eyebrow-2">The Details</p>
           <h2>The parts you remember.</h2>
-          <p class="lead">
-            A car is never only its outline.<span class="para-break"></span><br /><br />It
-            is the cool metal of a gear lever.<br />The first touch of worn
-            leather.<br />The weave of a seat insert. The rise in engine note<br />as
-            the road clears in front of you.<span class="para-break"></span><br /><br />Antipode
-            is built around these moments:<br />the small, physical details that
-            turn a beautiful object<br />into a car you know by heart.
-          </p>
+<p class="verse">A car is never only its outline.
+
+It is the cool metal of a gear lever.
+The first touch of worn leather.
+The weave of a seat insert. The rise in engine note
+as the road clears in front of you.
+
+<strong>Antipode is built around these moments:</strong>
+the small, physical details that turn a beautiful object
+into a car you know by heart.</p>
         </div>
 
         <div class="details-grid">
@@ -453,7 +488,7 @@
                 assets/img/interior-cognac@900.webp  900w,
                 assets/img/interior-cognac.webp     1536w
               "
-              sizes="(max-width: 820px) 92vw, 55vw"
+              sizes="(max-width: 820px) 92vw, 58vw"
             />
             <img
               src="assets/img/interior-cognac@900.jpg"
@@ -461,7 +496,7 @@
                 assets/img/interior-cognac@900.jpg  900w,
                 assets/img/interior-cognac.jpg     1536w
               "
-              sizes="(max-width: 820px) 92vw, 55vw"
+              sizes="(max-width: 820px) 92vw, 58vw"
               alt="Interior detail of an Antipode commission: cognac leather, houndstooth inserts and classic dials."
               width="900"
               height="558"
@@ -473,21 +508,21 @@
             <source
               type="image/webp"
               srcset="
-                assets/img/coast-dusk-motion@900.webp  900w,
-                assets/img/coast-dusk-motion.webp     1600w
+                assets/img/engine-itb@900.webp  900w,
+                assets/img/engine-itb.webp     1536w
               "
-              sizes="(max-width: 820px) 92vw, 38vw"
+              sizes="(max-width: 820px) 92vw, 36vw"
             />
             <img
-              src="assets/img/coast-dusk-motion@900.jpg"
+              src="assets/img/engine-itb@900.jpg"
               srcset="
-                assets/img/coast-dusk-motion@900.jpg  900w,
-                assets/img/coast-dusk-motion.jpg     1600w
+                assets/img/engine-itb@900.jpg  900w,
+                assets/img/engine-itb.jpg     1536w
               "
-              sizes="(max-width: 820px) 92vw, 38vw"
-              alt="An Antipode commission at speed on a coastal road, headlights lit against the dusk."
+              sizes="(max-width: 820px) 92vw, 36vw"
+              alt="The rebuilt air-cooled flat-six in an Antipode commission: individual throttle bodies, braided lines and machined hardware."
               width="900"
-              height="471"
+              height="567"
               loading="lazy"
               decoding="async"
             />
@@ -495,59 +530,181 @@
         </div>
       </section>
 
-      <section id="commission" style="background: #e7e1d4">
-        <div class="section-head">
-          <div class="rule"></div>
+      <section id="commission">
+        <div class="wrap">
+          <p class="eyebrow-2">The Commission</p>
           <h2>One car. One point of view.</h2>
-          <p class="lead-center">
-            An Antipode commission begins with a conversation.<span
-              class="para-break"
-            ></span><br /><br />How will you use the car?<br />Where will it take
-            you?<br />What should it feel like in the first kilometre,<br />and in
-            the thousandth?<span class="para-break"></span><br /><br />From
-            there, a collection of choices becomes a coherent whole:<br />the
-            donor, stance, colour, cabin, materials and character.<br />The
-            process is deliberate, collaborative and unhurried.<span
-              class="para-break"
-            ></span><br /><br />The finished car is not chosen from a list.<br />It
-            is discovered over time.
-          </p>
+<p class="verse">An Antipode commission begins with a conversation.
+
+How will you use the car?
+Where will it take you?
+What should it feel like in the first kilometre,
+and in the thousandth?
+
+From there, a collection of choices becomes a coherent whole:
+the donor, stance, colour, cabin, materials and character.
+The process is deliberate, collaborative and unhurried.
+
+<strong>The finished car is not chosen from a list.</strong>
+It is discovered over time.</p>
         </div>
 
-        <ol class="process-list">
-          <li><span>01 /</span> Conversation</li>
-          <li><span>02 /</span> Direction</li>
-          <li><span>03 /</span> Creation</li>
-          <li><span>04 /</span> Delivery</li>
-          <li><span>05 /</span> The Road Ahead</li>
+        <ol class="steps">
+          <li>
+            <span class="step-n">01</span>
+            <h3>Conversation</h3>
+            <p>We meet, and listen. The car begins with the life it will join.</p>
+          </li>
+          <li>
+            <span class="step-n">02</span>
+            <h3>Direction</h3>
+            <p>Together we find the donor and agree the character of the car.</p>
+          </li>
+          <li>
+            <span class="step-n">03</span>
+            <h3>Creation</h3>
+            <p>The build unfolds in one Sydney workshop, documented throughout.</p>
+          </li>
+          <li>
+            <span class="step-n">04</span>
+            <h3>Delivery</h3>
+            <p>Certified, registered and handed over in Sydney, or shipped worldwide.</p>
+          </li>
+          <li>
+            <span class="step-n">05</span>
+            <h3>The Road Ahead</h3>
+            <p>We remain the car's caretakers for as long as you own it.</p>
+          </li>
         </ol>
+
+        <!--
+          Published per plan-v4-master.md 6.3: client-facing language is a single
+          numbered commission, not a tier grid. The internal Stack A/B/C cost
+          stacks are not shown. Founders-series pricing is a commercial choice
+          the founders can remove by deleting one row.
+        -->
+        <div class="terms">
+          <p class="eyebrow-2">Commission Terms</p>
+          <dl>
+            <div>
+              <dt>Foundation commission</dt>
+              <dd><b>From A$975,000</b>, excluding the donor car.</dd>
+            </div>
+            <div>
+              <dt>Founders series</dt>
+              <dd>
+                The first three commissions are offered at
+                <b>A$895,000</b>, ex-donor.
+              </dd>
+            </div>
+            <div>
+              <dt>All in, with a donor</dt>
+              <dd>
+                Typically <b>A$1.07m to A$1.11m</b> where we source and secure the
+                car for you.
+              </dd>
+            </div>
+            <div>
+              <dt>Payment</dt>
+              <dd>
+                A commissioning deposit, then staged against milestones you sign
+                off in the workshop. Never ahead of the work.
+              </dd>
+            </div>
+            <div>
+              <dt>Ownership programme</dt>
+              <dd>
+                A$18,000 a year. Annual service, agreed-value revaluation,
+                registry privileges and the owners' events.
+              </dd>
+            </div>
+            <div>
+              <dt>Beyond the foundation</dt>
+              <dd>
+                Longer-range touring specifications, bespoke bodywork and export
+                homologation are quoted privately, per commission.
+              </dd>
+            </div>
+          </dl>
+          <p class="terms-note">
+            Every commission is numbered and entered in the registry. No
+            specification is repeated.
+          </p>
+        </div>
       </section>
 
-      <section id="enquiry" class="cta-section">
-        <div class="rule"></div>
-        <h2>Begin with a road.</h2>
-        <p class="lead-center">
-          A limited number of private commissions are now being considered.<br />Tell
-          us where you would take yours.
-        </p>
-        <a class="btn" href="mailto:commissions@antipodemotor.com"
-          >Request a Private Conversation</a
-        >
+      <section id="journal">
+        <div class="wrap-wide journal">
+          <p class="eyebrow-2">The Journal</p>
+          <h2>Notes from the long way home.</h2>
+          <div class="journal-grid">
+            <article class="j-card">
+              <p class="j-no">No. 01</p>
+              <h3>Why Australia changes an air-cooled 911</h3>
+              <p>
+                Salt air, heat soak, coarse chip. What a continent asks of a car
+                designed for another one.
+              </p>
+              <p class="j-tag">Place</p>
+            </article>
+            <article class="j-card">
+              <p class="j-no">No. 02</p>
+              <h3>The G-body: the shape that learned to travel</h3>
+              <p>
+                Galvanised steel, honest supply, and why 1979 to 1985 is the right
+                foundation.
+              </p>
+              <p class="j-tag">The Car</p>
+            </article>
+            <article class="j-card">
+              <p class="j-no">No. 03</p>
+              <h3>Six materials that improve with miles</h3>
+              <p>
+                Leather, wool, brass, aluminium, paint and time. A study in ageing
+                well.
+              </p>
+              <p class="j-tag">Materials</p>
+            </article>
+            <article class="j-card">
+              <p class="j-no">No. 04</p>
+              <h3>A car begins before the workshop</h3>
+              <p>
+                What we look for in a donor, and what we walk away from.
+              </p>
+              <p class="j-tag">Process</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="enquire" class="cta-section">
+        <div class="wrap">
+          <p class="eyebrow-2">Private Enquiries</p>
+          <h2>Begin with a road.</h2>
+<p class="verse">A limited number of private commissions are now being considered.
+
+Tell us where you would take yours.</p>
+          <a class="btn" href="mailto:commissions@antipodemotor.com"
+            >Request a Private Conversation</a
+          >
+        </div>
       </section>
     </main>
 
     <footer>
       <div class="footer-top">
         <span>Antipode Motor Co. &middot; Sydney, Australia</span>
-        <span>Concept visualisations shown &middot; &copy; 2026</span>
+        <span>&copy; 2026</span>
       </div>
       <p class="disclaimer">
         Antipode Motor Co. is an independent restorer and is not affiliated with,
         endorsed by, or connected to Dr. Ing. h.c. F. Porsche AG. "Porsche,"
         "911" and "Carrera" are trademarks of Porsche AG, used here for
-        descriptive purposes only. All work is carried out on vehicles owned by,
-        and at the direction of, our clients. The cars shown are concept
-        visualisations; no completed Antipode commission has yet been delivered.
+        descriptive purposes only. All commissions are undertaken at the
+        direction of our clients. Imagery shown is illustrative of commission
+        direction; no completed Antipode commission has yet been delivered.
+        Prices are in Australian dollars, exclude GST and the donor car unless
+        stated, and are current at the date shown.
       </p>
     </footer>
   </body>
