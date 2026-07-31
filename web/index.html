@@ -35,14 +35,23 @@
   <body>
     <a class="skip" href="#philosophy">Skip to content</a>
 
-    <nav>
+    <nav aria-label="Primary">
       <a class="wordmark" href="#top">Antipode Motor Co.</a>
-      <ul>
-        <li><a href="#philosophy">Philosophy</a></li>
-        <li><a href="#the-car">The Car</a></li>
-        <li><a href="#places">Places</a></li>
-        <li><a href="#commission">Commission</a></li>
-      </ul>
+      <!--
+        A disclosure rather than a hidden list. Below 46rem the inline links used
+        to be display:none, which left the page with no navigation at all on a
+        phone. <details> gives a real menu with no JavaScript, keyboard support
+        and correct expanded state for free.
+      -->
+      <details class="menu">
+        <summary>Menu</summary>
+        <ul>
+          <li><a href="#philosophy">Philosophy</a></li>
+          <li><a href="#the-car">The Car</a></li>
+          <li><a href="#places">Places</a></li>
+          <li><a href="#commission">Commission</a></li>
+        </ul>
+      </details>
     </nav>
 
     <header class="hero" id="top">

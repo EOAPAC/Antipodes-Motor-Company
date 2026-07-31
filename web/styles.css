@@ -10,10 +10,23 @@
    ========================================================================== */
 
 :root {
-  --ink: #1c1a17;
-  --paper: #f4f1ea;
-  --stone: #e7e1d4;
-  --ochre: #a5713d;
+  --ink: #1c1a17;          /* unchanged */
+  --ochre: #a5713d;        /* unchanged: rules, graphics, non-text marks */
+
+  /* Ground moved off warm cream to a cooler bone. Same value family, the
+     yellow pulled out and a faint green-grey left in its place, so the warm
+     ochre now sits against a cool neutral instead of disappearing into it.
+     Warmer-stone alternative, if that direction is preferred instead:
+       --paper: #EFE9DF;  --stone: #E4DCCE; */
+  --paper: #edeee8;
+  --stone: #e1e3db;
+
+  /* Ochre fails WCAG AA as text on either ground (3.7:1 at 12px). This is the
+     same hue carried darker, for text only. Measured 5.46:1 on paper,
+     4.92:1 on stone. The brand ochre above is untouched and still carries
+     every rule and graphic mark, which are exempt. */
+  --ochre-ink: #855426;
+
   --eucalyptus: #31473b;
   --line: rgba(28, 26, 23, 0.16);
   --muted: #4a463f;
@@ -106,32 +119,111 @@ nav {
   font-family: var(--grotesque);
   text-decoration: none;
   white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
 }
 
 nav ul {
   display: flex;
-  gap: 32px;
+  gap: 20px;                 /* was 32; the difference moves into link padding
+                                so short labels still clear 44px of target */
   list-style: none;
 }
 
 nav a {
   color: #f4f1ea;
   text-decoration: none;
-  font-size: 11px;
+  font-size: 12px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
   font-family: var(--grotesque);
   transition: opacity 0.3s;
 }
 
+nav ul a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;          /* the label stays 12px; the target does not */
+  min-width: 44px;           /* "The Car" is only 33px of text */
+  padding: 0 6px;
+}
+
 nav a:hover {
   opacity: 0.7;
 }
 
-/* The supplied nav overflowed below ~46rem. Labels drop, wordmark stays. */
+/* Desktop: the disclosure is invisible plumbing and the list sits inline. */
+.menu > summary {
+  display: none;
+}
+
+.menu > ul {
+  display: flex;
+}
+
+/* Phone and small tablet: the list becomes a real menu behind a labelled
+   control. Previously it was display:none, i.e. no navigation at all. */
 @media (max-width: 46rem) {
-  nav ul {
+  .menu {
+    position: relative;
+  }
+
+  .menu > summary {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 0 2px;
+    color: #f4f1ea;
+    font-family: var(--grotesque);
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    cursor: pointer;
+    list-style: none;
+  }
+
+  .menu > summary::-webkit-details-marker {
     display: none;
+  }
+
+  .menu > summary::after {
+    content: "";
+    width: 7px;
+    height: 7px;
+    margin-left: 10px;
+    border-right: 1px solid currentColor;
+    border-bottom: 1px solid currentColor;
+    transform: rotate(45deg) translateY(-2px);
+  }
+
+  .menu[open] > summary::after {
+    transform: rotate(-135deg) translateY(-2px);
+  }
+
+  .menu > ul {
+    position: absolute;
+    right: 0;
+    top: calc(100% + 10px);
+    flex-direction: column;
+    gap: 0;
+    min-width: 12rem;
+    padding: 6px 0;
+    background: rgba(16, 15, 13, 0.96);
+    border: 1px solid rgba(244, 241, 234, 0.16);
+  }
+
+  .menu > ul a {
+    display: flex;
+    align-items: center;
+    min-height: 48px;
+    padding: 0 20px;
+    width: 100%;
+  }
+
+  .menu > ul li + li a {
+    border-top: 1px solid rgba(244, 241, 234, 0.1);
   }
 }
 
@@ -196,10 +288,10 @@ nav a:hover {
 
 .eyebrow {
   font-family: var(--grotesque);
-  font-size: 11px;
-  letter-spacing: 0.3em;
+  font-size: 12px;
+  letter-spacing: 0.28em;
   text-transform: uppercase;
-  color: #d9c9a8;
+  color: #e2d4b4;            /* lifted for contrast over the hero photograph */
   margin-bottom: 24px;
 }
 
@@ -243,10 +335,13 @@ h3 {
   color: #f4f1ea;
   text-decoration: none;
   font-family: var(--grotesque);
-  font-size: 11px;
-  letter-spacing: 0.25em;
+  font-size: 12px;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
   transition: 0.4s ease;
+  min-height: 48px;          /* comfortable target on touch */
+  display: inline-flex;
+  align-items: center;
 }
 
 .btn:hover {
@@ -316,6 +411,38 @@ section {
   section {
     padding: 80px var(--gutter);
   }
+  /* A fixed 70vh crop on a 16:9 render squeezes the car into a letterbox on a
+     phone. Aspect ratio keeps the composition intact instead. */
+  .full-image {
+    height: auto;
+    aspect-ratio: 16 / 10;
+  }
+  .gallery,
+  .details-grid,
+  .car-grid {
+    gap: 12px;
+  }
+  .gallery figcaption {
+    left: 14px;
+    bottom: 14px;
+  }
+  .hero-copy {
+    margin-top: 0;
+  }
+  .hero {
+    align-items: flex-end;
+    padding-bottom: 12vh;
+  }
+  .hero-copy p {
+    font-size: 18px;
+  }
+  .btn {
+    margin-top: 32px;
+    padding: 16px 26px;
+  }
+  .process-list li span {
+    margin-right: 14px;
+  }
   .lead {
     font-size: 19px;
   }
@@ -335,6 +462,21 @@ section {
   }
 }
 
+@media (max-width: 30rem) {
+  section {
+    padding: 64px var(--gutter);
+  }
+  .section-head {
+    margin-bottom: 40px;
+  }
+  .cta-section {
+    padding: 96px var(--gutter);
+  }
+  footer {
+    padding: 32px var(--gutter);
+  }
+}
+
 /* --- Pillars ------------------------------------------------------------ */
 
 .pillars {
@@ -346,10 +488,10 @@ section {
 
 .pillar h3 {
   font-family: var(--grotesque);
-  font-size: 12px;
-  letter-spacing: 0.2em;
+  font-size: 13px;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--ochre);
+  color: var(--ochre-ink);
 }
 
 .pillar p {
@@ -471,10 +613,14 @@ section {
   bottom: 30px;
   color: #f4f1ea;
   font-family: var(--grotesque);
-  font-size: 10px;
-  letter-spacing: 0.25em;
+  font-size: 12px;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
-  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.8);
+  /* Captions sit on photography, so they carry their own scrim rather than
+     relying on whatever happens to be behind them. */
+  padding: 6px 10px;
+  background: rgba(15, 13, 10, 0.55);
+  backdrop-filter: blur(2px);
 }
 
 .details-grid {
@@ -519,8 +665,9 @@ section {
 }
 
 .process-list li span {
-  color: var(--ochre);
+  color: var(--ochre-ink);
   margin-right: 24px;
+  font-variant-numeric: tabular-nums;
 }
 
 /* --- Closing CTA -------------------------------------------------------- */
@@ -550,9 +697,9 @@ section {
 footer {
   padding: 40px var(--gutter);
   background: #100f0d;
-  color: #6a665d;
+  color: #938d82;            /* was #6a665d: 3.1:1 on the footer ground */
   font-family: var(--grotesque);
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
 }
@@ -575,7 +722,7 @@ footer {
   line-height: 1.6;
   letter-spacing: 0;
   text-transform: none;
-  color: #6a665d;
+  color: #938d82;
   max-width: 900px;
 }
 

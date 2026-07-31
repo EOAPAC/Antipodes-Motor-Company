@@ -48,10 +48,29 @@ Headline: **Cars for roads that are worth the drive.**
 | Token | Hex | Use |
 |---|---|---|
 | Ink | `#1c1a17` | Body text, closing section ground |
-| Paper | `#f4f1ea` | Primary ground |
-| Stone | `#e7e1d4` | Alternate section ground |
-| Ochre | `#a5713d` | The single rule, pillar labels, process numerals |
+| Paper | `#edeee8` | Primary ground. Cool bone |
+| Stone | `#e1e3db` | Alternate section ground |
+| Ochre | `#a5713d` | Rules, graphics, non-text marks |
+| Ochre ink | `#855426` | Ochre-coloured **text** only. See below |
 | Eucalyptus | `#31473b` | Held in reserve, currently unused |
+
+**The ground moved off cream.** It started at `#f4f1ea`, a warm cream, which is
+the single most over-used ground in AI-generated editorial design and sits in the
+same family as a soft terracotta accent. Against it, our ochre nearly disappeared.
+The ground is now a cooler bone: same value, the yellow pulled out, a faint
+green-grey left behind. The warm ochre reads as a deliberate accent against a cool
+neutral instead of blending into a warm one, and the whole page reads closer to
+limestone than to parchment. Ink and ochre are unchanged.
+
+If the warmer direction is preferred instead, it is a two-line swap, noted in
+`web/styles.css`: `--paper: #EFE9DF; --stone: #E4DCCE;`
+
+**Why there are two ochres.** The brand ochre fails WCAG AA as text: 3.7:1 at
+12px on either ground, against a 4.5:1 requirement. Rather than change the brand
+colour, the same hue is carried darker for text only, measured at 5.46:1 on paper
+and 4.92:1 on stone. `--ochre` still draws every rule and graphic mark, which are
+exempt from contrast rules. `--ochre-ink` carries the pillar labels and the
+process numerals. Do not use `--ochre` for type.
 
 Serif throughout for reading. Grotesque for labels, navigation and numerals only.
 System font stacks, no webfonts, so there is no external request and no layout

@@ -36,6 +36,41 @@ specification close to verbatim, with two deliberate changes:
 - **A concept-render notice added.** No completed car exists. Every figure is
   captioned "concept render" and the enquiry section says so plainly.
 
+## Deployment
+
+Deployed to Vercel as a static site. `vercel.json` at the repo root sets
+`outputDirectory: web`, so there is no build step, and adds an `X-Robots-Tag:
+noindex, nofollow` response header.
+
+That header matters and is not redundant with the `<meta name="robots">` tag: the
+meta tag only covers the HTML document, while six of the ten renders still carry
+Porsche badging and would otherwise be directly indexable as image URLs. **Remove
+both the header and the meta tag together, once `ASSET-CLEARANCE.md` is signed
+off.**
+
+## Accessibility and mobile
+
+Audited with a scripted pass over computed styles at 390px, 768px and 1440px.
+Current state: no contrast failures, nothing below 12px, no touch target under
+44x44, no horizontal overflow at any width.
+
+Three things worth not regressing:
+
+**Mobile navigation exists.** It previously did not: below 46rem the inline links
+were `display: none`, leaving a nine-section scroll page with no way to navigate.
+It is now a `<details>` disclosure, which gives a real menu with no JavaScript,
+keyboard support and correct expanded state for free. Menu items are 48px tall.
+
+**There are two ochres, and only one is for text.** `--ochre` (#a5713d) fails AA
+as type at 3.7:1. `--ochre-ink` (#855426) is the same hue carried darker, measured
+5.46:1 on paper and 4.92:1 on stone, and it carries the pillar labels and process
+numerals. `--ochre` draws rules and graphic marks only, which are exempt. Do not
+set type in `--ochre`.
+
+**Gallery captions carry their own scrim.** They sit on photography, so contrast
+cannot be guaranteed by the palette. Each has a translucent ink background rather
+than relying on a text shadow over an unknown image.
+
 ## Design
 
 Art direction per `docs/04-brand-clearance.md`: charcoal `#14150F` ground, bone

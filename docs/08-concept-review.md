@@ -95,11 +95,15 @@ Kimi's own Heritage tier gets this right at "3.4L, ~280 hp", which sits inside
 Plan A's 210 to 260 kW envelope. Either specify 3.4 to 3.6 litres, or re-cost the
 engine line properly. Do not publish 4.0L until it is quoted.
 
-**5. The light "paper" palette.** Kimi used a parchment ground (`#f4f1ea`) with
-ink text and a soft ochre. Plan A specifies the inverse: charcoal `#14150F`, bone
-`#EDE7D8`, one ochre-red accent `#B24A24`. The dark treatment is the agreed art
-direction, it suits the photography, and it separates us from the light editorial
-look most restomod houses already use. Built dark.
+**5. The light "paper" palette.** Superseded, and this entry is kept only so the
+reasoning is traceable. At the time of this review Plan A's charcoal ground was the
+agreed art direction and the site was built dark. The founders then chose the light
+editorial direction, which is what now ships. See `docs/09-brand-direction.md`.
+
+One point from the original objection did survive, and was acted on: the parchment
+ground the concept used (`#f4f1ea`) is a heavily over-used warm cream, and our warm
+ochre disappeared against it. The adopted ground is a cooler bone, `#edeee8`, which
+keeps the light direction while giving the accent somewhere to sit.
 
 **6. The Export tier's LHD conversion.** Converting to left-hand drive on a car
 whose value rests partly on originality is a significant engineering and
