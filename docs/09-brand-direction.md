@@ -78,23 +78,56 @@ shift. Implemented in `web/styles.css`.
 
 ## Structure
 
-Nine movements, in this order. The rhythm alternates copy and image deliberately;
-do not add a section without deciding what it displaces.
+Ten movements. The rhythm alternates copy and image deliberately; do not add a
+section without deciding what it displaces.
 
-1. Hero. Tagline as eyebrow, headline, one sentence, one call to action.
+1. Hero. Three beats: brand as eyebrow, the tagline as the headline, the
+   proposition as an italic serif line, then one sentence and one call to action.
 2. Philosophy. "The road is part of the design."
 3. Full-bleed plate. No copy.
-4. Three pillars: Distance, Feel, Belonging.
+4. Three principles: Distance, Feel, Belonging.
 5. The car. "A familiar shape. A different sense of place." Two images, three
    qualitative statements (Air-Cooled, One Owner, Made to Go).
-6. Places. Four-image gallery with place-and-time captions.
-7. Details. "The parts you remember." Two images.
-8. Commission. Five named stages, no durations, no prices.
-9. Closing. "Begin with a road."
+6. The build. "One workshop. One standard." The process image: a finished car on
+   the lift with the next bare shell behind it.
+7. Places. Four-image gallery with place-and-time captions.
+8. Details. "The parts you remember." Cabin and engine.
+9. Commission. Five named stages, then commission terms.
+10. Journal. Four pieces. Closing: "Begin with a road."
 
 The three statements in movement 5 replace what would ordinarily be a spec band.
 They are the load-bearing choice in the whole page: qualitative where a spec band
 would be quantitative.
+
+**Copy blocks are authored with real line breaks** and rendered with
+`white-space: pre-line`. The breaks are part of the writing, not decoration. Below
+34rem they collapse to a normal wrap, because at that measure authored breaks
+fight the natural one.
+
+## Pricing on the page
+
+Figures are published, which is a change. The client-facing position in
+`reference/plan-v4-master.md` section 6.3 is deliberately **one numbered
+commission, not a tier grid**, and the internal Stack A/B/C cost stacks stay
+internal. So the page carries a "Commission Terms" block rather than three price
+cards:
+
+| | |
+|---|---|
+| Foundation commission | From A$975,000, ex-donor |
+| Founders series | First three at A$895,000, ex-donor |
+| All in, with a donor | A$1.07m to A$1.11m |
+| Ownership programme | A$18,000 a year |
+| Beyond the foundation | Quoted privately, per commission |
+
+Two things about the treatment. The figures are set in the serif at a size only
+slightly above body copy, so they read as terms of business rather than as a
+price list to shop. And there is nothing to choose between, which is the point:
+the ladder is a sales instrument for a conversation, not a menu.
+
+The founders-series row is a commercial choice, not a brand one. The plan frames
+A$895,000 as the fallback if the demand-evidence gate fails; publishing it now
+reads as a launch offer instead. Deleting that one row reverts to a single price.
 
 ## The pillars
 
@@ -128,6 +161,7 @@ Unchanged and not negotiable, per `docs/03-regulatory-and-tax.md` section 6:
 - **Photography.** Every image is a concept render. The direction depends on
   photography that looks unposed and specific to place, so the first real shoot
   matters more than usual.
-- **Where price appears at all.** Nowhere on the site is the right answer for
-  launch. The two-tier ladder in `decisions/ADR-0005` still governs what is quoted
-  in a conversation.
+- **Whether the founders-series price stays public.** It is published now, which
+  presents a fallback as a launch offer. Defensible as scarcity, and the honest
+  position while no letters of intent exist, but it is the founders' call. See
+  `decisions/ADR-0006`.

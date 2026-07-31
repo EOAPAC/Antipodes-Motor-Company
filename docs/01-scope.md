@@ -14,9 +14,7 @@ Not a decision to build cars. `docs/02-strategy-decision.md` sets out why the bu
 
 ## Pricing
 
-Recommended: two tiers, both ex-donor and ex-GST. **Foundation A$975,000** and **Signature A$1,150,000**, at 34.9% and 37.1% gross margin respectively. A third concept proposed an A$850,000 entry tier; it is rejected on positioning rather than margin, because it sits A$10,000 below Theon Design's full carbon-bodied car. Reasoning in `decisions/ADR-0005`, arithmetic in `model/output.md` section 10.
-
-Neither figure is published on the site. Commissions at this level are quoted on application.
+Published: **from A$975,000 ex-donor**, with the first three offered as a founders series at **A$895,000**, and roughly **A$1.07m to A$1.11m** all in where Antipode sources the donor. The commission ladder is kept internal as costed Stack A/B/C build stacks. Reasoning in `decisions/ADR-0006`, which supersedes ADR-0005; the arithmetic behind the tiers is in `model/output.md` section 10.
 
 Both prices are contingent on the labour-rate question (`decisions/ADR-0003`) and the LCT ruling (`decisions/ADR-0004`). If either lands badly, the ladder is re-derived before it is quoted.
 
@@ -90,7 +88,8 @@ decisions/
   ADR-0002  G-body donor choice
   ADR-0003  Equity split and labour rate settled together  [blocks Gate 1]
   ADR-0004  ATO private ruling on LCT                       [blocks Gate 1]
-  ADR-0005  Two commission tiers, not one and not three
+  ADR-0005  Two commission tiers  [superseded by 0006]
+  ADR-0006  One published commission, ladder kept internal
 model/
   model.mjs                    Runnable unit economics and sensitivity model
   output.md                    Generated report, committed

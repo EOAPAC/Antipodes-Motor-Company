@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Antipode Motor Co. — Engineered for the other side of the world</title>
+<style>
+  :root{
+    --ink:#14150F; --bone:#EDE7D8; --ochre:#B24A24; --mut:#a39a86; --line:rgba(237,231,216,.14);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--ink);color:var(--bone);font-family:'Helvetica Neue',Arial,sans-serif;line-height:1.75;font-size:16px}
+  .serif{font-family:Georgia,'Times New Roman',serif}
+  nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;justify-content:space-between;align-items:center;
+      padding:24px 5vw;background:linear-gradient(to bottom,rgba(20,21,15,.8),transparent)}
+  .wordmark{font-size:12px;letter-spacing:.45em;text-transform:uppercase}
+  nav ul{display:flex;gap:28px;list-style:none}
+  nav a{color:var(--bone);text-decoration:none;font-size:10px;letter-spacing:.22em;text-transform:uppercase;opacity:.75}
+  nav a:hover{opacity:1;color:var(--ochre)}
+  .hero{position:relative;height:100vh;min-height:640px;display:flex;align-items:flex-end}
+  .hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(20,21,15,.82),rgba(20,21,15,.05) 55%)}
+  .hero-copy{position:relative;z-index:2;padding:0 5vw 10vh;max-width:900px}
+  .eyebrow{font-size:11px;letter-spacing:.4em;text-transform:uppercase;color:var(--ochre);margin-bottom:22px}
+  h1{font-family:Georgia,serif;font-size:clamp(40px,6vw,82px);line-height:1.06;font-weight:400}
+  .hero-sub{margin-top:26px;font-family:Georgia,serif;font-size:clamp(18px,2.2vw,24px);font-style:italic;color:var(--bone)}
+  .hero-copy p.body{margin-top:16px;font-size:16px;max-width:520px;color:var(--bone);opacity:.85}
+  .btn{display:inline-block;margin-top:38px;padding:16px 38px;border:1px solid var(--bone);color:var(--bone);text-decoration:none;
+       font-size:10px;letter-spacing:.3em;text-transform:uppercase;transition:.3s}
+  .btn:hover{background:var(--ochre);border-color:var(--ochre)}
+  section{padding:130px 5vw;border-top:1px solid var(--line)}
+  .wrap{max-width:820px;margin:0 auto}
+  .wrap-wide{max-width:1200px;margin:0 auto}
+  .eyebrow2{font-size:10px;letter-spacing:.32em;text-transform:uppercase;color:var(--ochre);margin-bottom:24px}
+  h2{font-family:Georgia,serif;font-size:clamp(28px,3.6vw,46px);font-weight:400;line-height:1.2}
+  .verse{margin-top:34px;font-size:17px;color:var(--mut);white-space:pre-line}
+  .verse strong{color:var(--bone);font-weight:400}
+  .break{width:100%;height:72vh;min-height:420px;object-fit:cover;display:block}
+  .principles{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);margin-top:70px}
+  .principle{background:var(--ink);padding:46px 38px}
+  .principle h3{font-family:Georgia,serif;font-size:20px;font-weight:400;margin-bottom:14px}
+  .principle p{font-size:14px;color:var(--mut)}
+  .two-col{display:grid;grid-template-columns:1fr 1fr;gap:22px;max-width:1200px;margin:60px auto 0}
+  .two-col img{width:100%;height:100%;object-fit:cover;display:block;aspect-ratio:4/3}
+  @media(max-width:820px){.two-col{grid-template-columns:1fr}}
+  .band{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));max-width:1100px;margin:80px auto 0;border-top:1px solid var(--line)}
+  .band div{padding:32px 24px 0}
+  .band b{display:block;font-weight:400;font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:var(--bone);margin-bottom:10px}
+  .band span{font-size:13px;color:var(--mut)}
+  .gallery{max-width:1200px;margin:70px auto 0;display:grid;grid-template-columns:repeat(12,1fr);gap:20px}
+  .gallery figure{position:relative;overflow:hidden}
+  .gallery img{width:100%;height:100%;object-fit:cover;display:block}
+  .g-wide{grid-column:span 12;aspect-ratio:21/9}
+  .g-half{grid-column:span 6;aspect-ratio:4/3}
+  @media(max-width:820px){.g-half{grid-column:span 12}}
+  figcaption{position:absolute;left:20px;bottom:16px;font-size:10px;letter-spacing:.28em;text-transform:uppercase;text-shadow:0 1px 8px rgba(0,0,0,.7)}
+  .details-grid{display:grid;grid-template-columns:1.5fr 1fr;gap:22px;max-width:1200px;margin:60px auto 0}
+  .details-grid img{width:100%;height:100%;object-fit:cover;display:block}
+  @media(max-width:820px){.details-grid{grid-template-columns:1fr}}
+  .steps{max-width:820px;margin:60px auto 0}
+  .step{display:grid;grid-template-columns:70px 200px 1fr;gap:26px;padding:26px 0;border-bottom:1px solid var(--line);align-items:baseline}
+  .step .n{font-size:11px;letter-spacing:.25em;color:var(--ochre)}
+  .step h3{font-size:12px;letter-spacing:.25em;text-transform:uppercase;font-weight:400}
+  .step p{font-size:14px;color:var(--mut)}
+  @media(max-width:720px){.step{grid-template-columns:50px 1fr}.step p{grid-column:2}}
+  .journal{max-width:1200px;margin:0 auto}
+  .journal-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);margin-top:56px}
+  .j-card{background:var(--ink);padding:40px 34px;transition:.3s}
+  .j-card:hover{background:#1b1c15}
+  .j-card .j-no{font-size:10px;letter-spacing:.3em;color:var(--ochre)}
+  .j-card h3{font-family:Georgia,serif;font-size:21px;font-weight:400;margin:16px 0 12px;line-height:1.35}
+  .j-card p{font-size:13px;color:var(--mut)}
+  .j-card .j-tag{display:inline-block;margin-top:22px;font-size:10px;letter-spacing:.25em;text-transform:uppercase;color:var(--bone);opacity:.6}
+  .enquiry{text-align:center}
+  .enquiry .wrap{max-width:680px}
+  .enquiry .verse{margin-top:28px}
+  footer{padding:60px 5vw 44px;border-top:1px solid var(--line)}
+  .legal{max-width:1100px;margin:0 auto;font-size:11px;color:var(--mut);line-height:1.8}
+  .legal .top{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;margin-bottom:24px;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--bone)}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wordmark">Antipode Motor Co.</div>
+  <ul>
+    <li><a href="#philosophy">Philosophy</a></li>
+    <li><a href="#car">The Car</a></li>
+    <li><a href="#places">The Places</a></li>
+    <li><a href="#journal">Journal</a></li>
+    <li><a href="#commission">Commission</a></li>
+  </ul>
+</nav>
+
+<header class="hero">
+  <img src="v4_hero.png" alt="An air-cooled commission on a coastal road at last light">
+  <div class="hero-copy">
+    <div class="eyebrow">Antipode Motor Co.</div>
+    <h1>Engineered for the other side of the world.</h1>
+    <p class="hero-sub">Cars for roads that are worth the drive.</p>
+    <p class="body">Antipode creates deeply personal air-cooled commissions: restored with patience, shaped by place, and made for the long way home.</p>
+    <a class="btn" href="#enquire">Begin a Private Commission</a>
+  </div>
+</header>
+
+<section id="philosophy">
+  <div class="wrap">
+    <div class="eyebrow2">The Philosophy</div>
+    <h2>The road is part of the design.</h2>
+    <p class="verse">Australia changes quickly beneath a car.
+
+One hour, salt air and a coastal horizon.
+The next, rain in the trees. Heat on the plain.
+A surface that asks more of the suspension, the cooling,
+the seats and the person behind the wheel.
+
+<strong>Antipode begins there.</strong>
+
+We take the enduring shape of an air-cooled 911 and
+make it feel entirely at home on this side of the world.
+Not as a replica of the past, but as a car with many more
+miles ahead of it.</p>
+  </div>
+  <div class="wrap-wide principles">
+    <div class="principle"><h3>Distance</h3><p>Built for early departures, long lunches, changing weather and roads that continue after the map becomes less certain.</p></div>
+    <div class="principle"><h3>Feel</h3><p>The weight of the steering. The sound behind you. The click of a switch. The details that make a drive memorable.</p></div>
+    <div class="principle"><h3>Belonging</h3><p>Each commission is shaped around its owner, then finished to belong to a particular life, collection and corner of the world.</p></div>
+  </div>
+</section>
+
+<img class="break" src="v4_forest.png" alt="An ivory commission in wet forest at first light">
+
+<section id="car">
+  <div class="wrap">
+    <div class="eyebrow2">The Car</div>
+    <h2>A familiar shape.<br>A different sense of place.</h2>
+    <p class="verse">Every Antipode begins with a 1979–1985 air-cooled 911.
+
+The proportions remain recognisable: compact, upright,
+unmistakable. But the experience becomes more complete.
+The car is restored in its entirety, reconsidered in detail,
+and tuned to become more involving with every kilometre.
+
+<strong>Nothing is added simply to announce itself.</strong>
+Everything is considered because it will be touched, heard,
+seen or relied upon.</p>
+  </div>
+  <div class="two-col">
+    <img src="v4_rear.png" alt="A commission at rest in the workshop">
+    <img src="v4_interior.png" alt="Saddle leather and houndstooth cabin">
+  </div>
+  <div class="band">
+    <div><b>Air-Cooled</b><span>A mechanical conversation, not a simulation.</span></div>
+    <div><b>One Owner</b><span>A commission developed around a single point of view.</span></div>
+    <div><b>Made to Go</b><span>Created for the journey beyond the handover.</span></div>
+  </div>
+</section>
+
+<section id="places">
+  <div class="wrap">
+    <div class="eyebrow2">The Places</div>
+    <h2>The continent in the car.</h2>
+    <p class="verse">The coast after rain. Eucalypt forest before sunrise.
+A red road at the end of a long day.
+
+Antipode is not defined by one landscape.
+It is defined by the change between them.
+
+That is where these cars make sense:
+not under lights, but in the space between one place and the next.</p>
+  </div>
+  <div class="gallery">
+    <figure class="g-wide"><img src="v4_coast.png" alt="Coastal road at dusk"><figcaption>Coastal Road / Dusk</figcaption></figure>
+    <figure class="g-half"><img src="v4_forest.png" alt="Wet forest at first light"><figcaption>Wet Forest / First Light</figcaption></figure>
+    <figure class="g-half"><img src="ochre_outback.png" alt="A red road inland at the end of the day"><figcaption>Inland / Late Afternoon</figcaption></figure>
+    <figure class="g-wide"><img src="v4_hero.png" alt="The long way home"><figcaption>The Long Way Home</figcaption></figure>
+  </div>
+</section>
+
+<section id="details">
+  <div class="wrap">
+    <div class="eyebrow2">The Details</div>
+    <h2>The parts you remember.</h2>
+    <p class="verse">A car is never only its outline.
+
+It is the cool metal of a gear lever.
+The first touch of worn leather.
+The weave of a seat insert. The rise in engine note
+as the road clears in front of you.
+
+<strong>Antipode is built around these moments:</strong>
+the small, physical details that turn a beautiful object
+into a car you know by heart.</p>
+  </div>
+  <div class="details-grid">
+    <img src="v4_interior.png" alt="Cabin detail — leather, wool and machined metal">
+    <img src="v4_engine.png" alt="The engine, considered as an object">
+  </div>
+</section>
+
+<section id="commission">
+  <div class="wrap">
+    <div class="eyebrow2">The Commission</div>
+    <h2>One car. One point of view.</h2>
+    <p class="verse">An Antipode commission begins with a conversation.
+
+How will you use the car?
+Where will it take you?
+What should it feel like in the first kilometre,
+and in the thousandth?
+
+From there, a collection of choices becomes a coherent whole:
+the donor, stance, colour, cabin, materials and character.
+The process is deliberate, collaborative and unhurried.
+
+<strong>The finished car is not chosen from a list.</strong>
+It is discovered over time.</p>
+  </div>
+  <div class="steps">
+    <div class="step"><span class="n">01</span><h3>Conversation</h3><p>We meet, and listen. The car begins with the life it will join.</p></div>
+    <div class="step"><span class="n">02</span><h3>Direction</h3><p>Together we find the donor and agree the character of the car.</p></div>
+    <div class="step"><span class="n">03</span><h3>Creation</h3><p>The build unfolds in one Sydney workshop, documented throughout.</p></div>
+    <div class="step"><span class="n">04</span><h3>Delivery</h3><p>Certified, registered and handed over — in Sydney, or worldwide.</p></div>
+    <div class="step"><span class="n">05</span><h3>The Road Ahead</h3><p>We remain the car's caretakers for as long as you own it.</p></div>
+  </div>
+</section>
+
+<section id="journal">
+  <div class="journal">
+    <div class="eyebrow2">The Journal</div>
+    <h2>Notes from the long way home.</h2>
+    <div class="journal-grid">
+      <div class="j-card"><div class="j-no">No. 01</div><h3>The Long Way Home: Why Australia Changes an Air-Cooled 911</h3><p>Salt air, heat soak, coarse chip. What a continent asks of a car designed for another one.</p><span class="j-tag">Place</span></div>
+      <div class="j-card"><div class="j-no">No. 02</div><h3>The G-Body: The Shape That Learned to Travel</h3><p>Galvanised steel, honest supply, and why 1979–1985 is the right foundation.</p><span class="j-tag">The Car</span></div>
+      <div class="j-card"><div class="j-no">No. 03</div><h3>Six Materials That Improve With Miles</h3><p>Leather, wool, brass, aluminium, paint and time. A study in ageing well.</p><span class="j-tag">Materials</span></div>
+      <div class="j-card"><div class="j-no">No. 04</div><h3>A Car Begins Before the Workshop: Finding the Right Foundation</h3><p>What we look for in a donor, and what we walk away from.</p><span class="j-tag">Process</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="enquiry" id="enquire">
+  <div class="wrap">
+    <div class="eyebrow2">Private Enquiries</div>
+    <h2>Begin with a road.</h2>
+    <p class="verse">A limited number of private commissions are now being considered.
+
+Tell us where you would take yours.</p>
+    <a class="btn" href="mailto:commissions@antipodemotor.com">Request a Private Conversation</a>
+  </div>
+</section>
+
+<footer>
+  <div class="legal">
+    <div class="top"><span>Antipode Motor Co. · Sydney, Australia</span><span>© 2026</span></div>
+    Antipode Motor Co. is an independent restorer and is not affiliated with, endorsed by, or connected to Dr. Ing. h.c. F. Porsche AG. "Porsche", "911" and "Carrera" are trademarks of Porsche AG, used here for descriptive purposes only. All commissions are undertaken at the direction of our clients. Imagery shown is illustrative of commission direction.
+  </div>
+</footer>
+
+</body>
+</html>

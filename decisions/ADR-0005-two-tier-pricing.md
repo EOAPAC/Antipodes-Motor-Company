@@ -1,6 +1,7 @@
 # ADR-0005: Two commission tiers, not one and not three
 
-Date: 31 July 2026. Status: proposed.
+Date: 31 July 2026. Status: **superseded by ADR-0006.** The arithmetic below
+stands; the decision to *publish* two tiers does not.
 
 ## Context
 

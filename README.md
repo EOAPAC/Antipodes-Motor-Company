@@ -77,13 +77,14 @@ docs/
   06-90-day-plan.md         Dated to 29 October 2026, three blocks
   07-open-questions.md      19 open items, flagged by which gate they block
   08-concept-review.md      Review of a third concept: what to adopt and reject
-  09-brand-direction.md     Adopted creative direction, voice, palette, structure
+  09-brand-direction.md     Adopted creative direction, voice, palette, structure, pricing
 decisions/
   ADR-0001  Staged commitment: atelier as destination, advisory as the path
   ADR-0002  G-body donor choice
   ADR-0003  Equity split and labour rate settled together   [blocks Gate 1]
   ADR-0004  ATO private ruling on LCT                        [blocks Gate 1]
-  ADR-0005  Two commission tiers, not one and not three
+  ADR-0005  Two commission tiers  [superseded by 0006]
+  ADR-0006  One published commission, ladder kept internal
 model/
   model.mjs                 Runnable model. Ten sections, every input sourced
   output.md                 Generated report, committed so it is reviewable
@@ -92,15 +93,19 @@ web/
   index.html                Brand site, cinematic editorial direction
   styles.css                Paper / ink / ochre, no dependencies
   build-images.py           Regenerates web derivatives from the masters
+  build-og.py               Regenerates the 1200x630 social share image
   ASSET-CLEARANCE.md        Per-render trademark status. Read before launch
-  assets/renders/           Ten masters: four cleared, six awaiting retouching
+  assets/renders/           Eleven masters: six cleared, five awaiting retouching
   assets/img/               Generated WebP and JPEG, two widths
 reference/
   plan-a-atelier.md         Source plan, verbatim
   plan-b-investor-grade.md  Source plan, verbatim
   plan-v3-master.md         Master plan v3, verbatim (truncated at s3.5)
+  plan-v4-master.md         Master plan v4, verbatim
+  plan-v4-directives.md     The critique that drove v4, verbatim
   kimi-hinterland-concept.html      Third concept, verbatim
   kimi-hinterland-concept-v2.html   Third concept, second pass, verbatim
+  kimi-concept-v4.html      Third concept, v4 pass, verbatim
 ```
 
 ## Running things
@@ -111,6 +116,7 @@ node model/model.mjs --write      # also regenerate model/output.md
 
 python3 -m http.server -d web 8000   # preview the site at localhost:8000
 python3 web/build-images.py          # rebuild image derivatives (needs Pillow)
+python3 web/build-og.py              # rebuild the social share image
 ```
 
 The model has no dependencies. `web/build-images.py` needs Pillow.
