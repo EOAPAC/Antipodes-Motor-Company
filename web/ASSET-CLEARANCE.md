@@ -43,6 +43,25 @@ off the set as a whole.
 All six carried an "AI 生成" watermark. Derivatives crop 7% off the bottom to
 remove it. **The masters still carry it**, so never publish from a master.
 
+## Automated patching was tried and rejected
+
+Removing the badges programmatically was tried first, before spending money on
+retouching: feathered patches sampled from adjacent paint for the crests,
+horizontal samples from the reflector band for the word marks, and per-row median
+fills for the plates. Coordinates were measured off grid overlays, so alignment
+was not the limiting factor.
+
+It does not work. The crests leave visible smears, the plates stay legible under
+the fill, and the wheel boss and the bone rear panel come out looking damaged
+rather than clean. On a seven-figure car a bad retouch is worse than a visible
+badge, because it reads as carelessness about the object itself.
+
+The conclusion for the register: these need real inpainting by a retoucher, or the
+compositions need regenerating. The v4 set is proof the generator can produce
+crest-free, plate-free cars directly, so **regenerating the six remaining
+compositions with the v4 prompt is likely cheaper and better than retouching
+them.** Try that first.
+
 ## Required work
 
 1. **Remove every crest and word mark** on the six above: bonnet crests, the
