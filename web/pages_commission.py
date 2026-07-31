@@ -25,7 +25,7 @@ LADDER = [
         "sub": "The commission most owners take",
         "engine": "3.4&ndash;3.6L rebuilt flat-six, ~210&ndash;235 kW",
         "includes": [
-            "Full bare-metal restoration of the galvanised shell",
+            "Full bare-metal restoration of the original shell, on its original VIN",
             "Every known weakness of the car resolved, not inspected and hoped over",
             "Uprated brakes and suspension, tuned for coarse-chip roads",
             "Thermal package and air conditioning engineered for 45&deg;C",
@@ -130,6 +130,27 @@ FAQ = [
         "Certification Scheme by a licensed certifier, on its original shell and VIN. "
         "The certification file, dyno sheets and validation record are bound into the "
         "Build Book, which is what an insurer or a future buyer actually wants to see.",
+    ),
+    (
+        "How is this different from the other Australian houses?",
+        "On one point that matters more than any other at this price: we keep the "
+        "original galvanised floor and the original VIN. Some houses cut the floor "
+        "out and fit an entirely new tub. That is a legitimate engineering choice "
+        "and it buys rigidity, but it is also a heavier regulatory path, because a "
+        "car built that way can be treated as an Individually Constructed Vehicle "
+        "and issued a new VIN. Yours is certified under the NSW scheme as your car, "
+        "modified, on the identity it left the factory with. That is what an insurer "
+        "underwrites and what a future buyer's inspector looks for.",
+    ),
+    (
+        "Are you chasing the biggest engine number?",
+        "No, and you should know that before you compare spec sheets. There is an "
+        "Australian car at this money with a 4.4-litre and 300kW, and we are not "
+        "trying to beat it. Our engines are built for a 1,200 kilometre day at "
+        "42 degrees on coarse chip, which is a different brief from a peak figure, "
+        "and the validation record we publish is where that shows up. If the "
+        "headline number is what you are buying, we are honestly not the right "
+        "house.",
     ),
     (
         "What happens if something goes wrong after delivery?",
@@ -276,6 +297,14 @@ def build(head, nav, footer, form) -> str:
 {_tiers()}
           </div>
         </div>
+
+        <p class="keeps-note">
+          <b>Every commission keeps the car it started as.</b> We retain, repair
+          and seam-strengthen the original galvanised shell and its VIN, and
+          certify it under the NSW scheme as your car, modified. We do not cut the
+          floor out and fit a new tub, which would put the car on the Individually
+          Constructed Vehicle path and a new VIN.
+        </p>
 
         <p class="founders-note">
           <b>Founders series.</b> The first three commissions are

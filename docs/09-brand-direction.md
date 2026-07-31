@@ -207,5 +207,9 @@ Unchanged and not negotiable, per `docs/03-regulatory-and-tax.md` section 6:
   presents a fallback as a launch offer. Defensible as scarcity, and the honest
   position while no letters of intent exist, but it is the founders' call.
 - **Whether Signature should carry a public figure at all.** At A$1.6m it meets
-  Zeigler/Bailey exactly, so it is the one tier where publishing invites a
-  comparison this house currently loses. See `decisions/ADR-0007`.
+  Zeigler/Bailey exactly, and Z/B publishes 300kW against Signature's no figure at
+  all, so on a spec sheet the tier loses. The Commission page now answers that on
+  the axis Antipode wins, original shell and original VIN against a new tub and an
+  ICV VIN, and says plainly that it is not chasing the peak number. Whether that
+  holds against a buyer who wants the bigger engine is untested. See
+  `decisions/ADR-0007`.
