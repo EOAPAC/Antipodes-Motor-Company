@@ -36,7 +36,7 @@ Milestone at 28 August: the founders know whether the name is usable, what the t
 | 2.7 | Retouch the six existing renders: remove every Porsche crest and word mark, re-plate, apply the Antipode wordmark, regenerate derivatives | J | Every item in `web/ASSET-CLEARANCE.md` closed and signed off by the trademark adviser |
 | 2.8 | Settle the widebody specification, then make the render set depict one coherent car | J + L + design authority | Flares agreed; three renders currently closer to a 930 Turbo brought into line |
 | 2.9 | Decide the commission ladder: two tiers or one price | J | Decision recorded against `decisions/ADR-0005`. Resolves Q17 |
-| 2.10 | Build and ship the website | J | Live at the cleared domain, enquiry form wired to the CRM, `noindex` removed only after 2.7 closes |
+| 2.10 | Build and ship the website | J | Live at the cleared domain, enquiry form wired to the CRM, search and social metadata in place |
 | 2.11 | Source and price two candidate donor 911 SC or 3.2 Carrera cars to validate the donor-cost assumption | J + L | Two real cars inspected and priced |
 | 2.12 | Sign an inspection and authentication partner for the donor desk | J | Agreement in place, fee basis agreed |
 | 2.13 | Update the model with every real quote received, replacing assumption lines | J | `model/output.md` regenerated, assumption count reduced |

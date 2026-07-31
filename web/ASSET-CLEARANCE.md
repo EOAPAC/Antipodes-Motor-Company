@@ -2,9 +2,13 @@
 
 Reviewed 31 July 2026. Ten renders in use across `index.html`.
 
-**Four are clear. Six are not.** The page stays `noindex` until every row below
-is cleared. Read this before the site goes public, before any render goes into a
-PR wave, and before anything is posted to social.
+**Four are clear. Six are not.**
+
+Indexing was previously gated on this register. That gate has been opened on the
+founders' instruction, so the site is live and indexable with six uncleared
+renders still in place. The register stays open, and the work below still needs
+doing. The Open Graph share image uses a cleared render, since that is the single
+most widely distributed asset on the site.
 
 ## Why this matters
 
@@ -98,8 +102,8 @@ them.** Try that first.
 - No render is described as "a Porsche" in alt text or copy. The page refers to
   "an air-cooled 911" twice and to "an Antipode commission" throughout. The word
   "Porsche" appears only in the trademark notice.
-- `<meta name="robots" content="noindex, nofollow">`. **Remove only after this
-  register closes.**
+- The Open Graph share image is built from `clifftop-basalt-front`, one of the
+  four cleared renders, by `web/build-og.py`.
 - All images local. The supplied file pointed at upload-bucket S3 URLs, which
   would have broken as soon as those expired.
 
