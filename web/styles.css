@@ -1443,9 +1443,31 @@ a.j-card:hover :is(h2, h3) {
   padding: 14px 26px;
 }
 
+/* Sits directly under the prices because that is where the comparison against
+   the other Australian houses happens. Ink-ground so it reads as a position
+   rather than a footnote. */
+.keeps-note {
+  max-width: 46rem;
+  margin: 34px auto 0;
+  padding: 24px 28px;
+  background: var(--ink);
+  color: #cfc9bc;
+  font-size: 1.02rem;
+  line-height: 1.7;
+}
+
+.keeps-note b {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 400;
+  font-family: var(--serif);
+  font-size: 1.18rem;
+  color: var(--paper);
+}
+
 .founders-note {
   max-width: 46rem;
-  margin: 30px auto 0;
+  margin: 22px auto 0;
   padding: 22px 26px;
   background: var(--stone);
   border-left: 2px solid var(--ochre);

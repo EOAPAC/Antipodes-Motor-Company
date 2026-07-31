@@ -43,7 +43,7 @@ Both source plans record Wiedergeboren's price as either A$1.265m or "A$1.15m pl
 | Theon Design (UK) | A$860,000 | A$946,000 | -11.8% | GBP 430k ex-VAT at 2.00; excludes shipping and AU taxes on landing |
 | Antipode (proposed) | A$975,000 | A$1,072,500 | — | Recommended launch commission |
 | Wiedergeboren (AU) | A$1,150,000 | A$1,265,000 | 17.9% | Reported as A$1.15m + GST, equivalently A$1.265m inc GST |
-| Zeigler/Bailey Z/B 4.4 (AU) | A$1,600,000 | A$1,760,000 | 64.1% | Reported ex-donor; GST basis not stated in sources |
+| Zeigler/Bailey Z/B 4.4 (AU) | A$1,600,000 | A$1,760,000 | 64.1% | Ex-donor, GST basis not stated. Publishes 300kW/500Nm from 4.4L; original floor replaced, ICV path |
 
 On a like-for-like ex-GST basis Antipode undercuts Wiedergeboren by A$175,000, or 15.2% below it, rather than the ~A$290k implied by comparing against the GST-inclusive figure. That is still a real wedge, but it is thinner than PLAN-A assumes, and it is the wedge that an adverse LCT ruling erases: at A$1,370,080 all-in, Antipode would sit 8.3% above Wiedergeboren instead of below it.
 

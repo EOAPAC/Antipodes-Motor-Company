@@ -204,7 +204,7 @@ const ladderComp = [
   { name: 'Theon Design (UK)', exGst: 860_000, note: 'GBP 430k ex-VAT at 2.00; excludes shipping and AU taxes on landing' },
   { name: 'Antipode (proposed)', exGst: price.v, note: 'Recommended launch commission' },
   { name: 'Wiedergeboren (AU)', exGst: 1_150_000, note: 'Reported as A$1.15m + GST, equivalently A$1.265m inc GST' },
-  { name: 'Zeigler/Bailey Z/B 4.4 (AU)', exGst: 1_600_000, note: 'Reported ex-donor; GST basis not stated in sources' },
+  { name: 'Zeigler/Bailey Z/B 4.4 (AU)', exGst: 1_600_000, note: 'Ex-donor, GST basis not stated. Publishes 300kW/500Nm from 4.4L; original floor replaced, ICV path' },
 ];
 table(
   ['House', 'Ex-GST', 'Inc-GST', 'vs Antipode ex-GST', 'Note'],

@@ -95,12 +95,30 @@ Stack C guide price ("A$1.6m+") unchanged.
 A$1.6m is Zeigler/Bailey's price to the dollar (section 3.2, table row 4). While
 the ladder was internal that was a costing coincidence; published, it is a
 side-by-side against an Australian house that has already sold eight cars, with a
-billet 4.4L engine, on the same G-body, at the same number. The pricing wedge this
-venture is built on exists at Foundation and evaporates at Signature. Either
-Signature needs a differentiator that reads at A$1.6m without a track record, or
-it should be the tier that stays "quoted privately". Flagging it as an open
-question rather than settling it here, because it does not block the Foundation
-commission, which is the only tier car one can be.
+billet 4.4L engine, on the same G-body, at the same number.
+
+The comparison is worse than "same price" once both are public. Z/B publishes
+**300kW and 500Nm** from its 4.4L. Antipode's Grande Traversée publishes
+~240–260kW, and Signature publishes no figure at all. A buyer putting the two
+pages side by side reads 40 to 60kW down for the same money, against a house with
+cars already delivered. `docs/01-scope.md` is right that Antipode should not chase
+that engine programme, but "do not chase it" is a costing decision, not an answer
+to the buyer, and publishing the ladder is what turns it into a question we have
+to answer.
+
+**The answer is structural, not mechanical.** Z/B cuts the original floor out and
+fits a new seam-welded tub, and accepted the Individually Constructed Vehicle path
+to do it (`docs/03-regulatory-and-tax.md` section 2). An ICV is issued a new VIN.
+Antipode's absolute rule is the opposite: retain, repair and seam-strengthen the
+original galvanised shell and its VIN, certified under the NSW scheme as a modified
+production vehicle. At A$1.6m, on a car bought partly as an asset, original
+identity is the argument that a house cutting the floor out cannot make at any
+price. That is now the answer given on the Commission page, and it is the reason
+Signature can stay published rather than retreating to "quoted privately".
+
+The pricing wedge this venture is built on still exists at Foundation and still
+evaporates at Signature. What has changed is that the tier now argues on the axis
+Antipode wins rather than the one it loses.
 
 If this is reversed, the revert is contained: `web/pages_commission.py` holds
 every figure as module-level data, and the summary block in `web/index.html` is
