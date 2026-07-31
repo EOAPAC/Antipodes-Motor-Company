@@ -14,7 +14,7 @@ Not a decision to build cars. `docs/02-strategy-decision.md` sets out why the bu
 
 ## Pricing
 
-Published: **from A$975,000 ex-donor**, with the first three offered as a founders series at **A$895,000**, and roughly **A$1.07m to A$1.11m** all in where Antipode sources the donor. The commission ladder is kept internal as costed Stack A/B/C build stacks. Reasoning in `decisions/ADR-0006`, which supersedes ADR-0005; the arithmetic behind the tiers is in `model/output.md` section 10.
+Published: the full ladder, client-facing at `/commission/`. **Foundation A$975,000**, **Grande Traversée A$1,150,000** and **Signature from A$1,600,000**, all ex-donor, with the first three offered as a founders series at **A$895,000** and roughly **A$1.07m to A$1.11m** all in where Antipode sources the donor. The four option lines and the five payment stages are published with them. This reverses ADR-0006 on the founder's instruction; reasoning and the exposure it creates are in `decisions/ADR-0007`. The arithmetic behind the tiers is in `model/output.md` section 10.
 
 Both prices are contingent on the labour-rate question (`decisions/ADR-0003`) and the LCT ruling (`decisions/ADR-0004`). If either lands badly, the ladder is re-derived before it is quoted.
 
@@ -89,7 +89,8 @@ decisions/
   ADR-0003  Equity split and labour rate settled together  [blocks Gate 1]
   ADR-0004  ATO private ruling on LCT                       [blocks Gate 1]
   ADR-0005  Two commission tiers  [superseded by 0006]
-  ADR-0006  One published commission, ladder kept internal
+  ADR-0006  One published commission, ladder kept internal  [superseded by 0007]
+  ADR-0007  Publish the full ladder. Overrules the plan's no-pricing rule
 model/
   model.mjs                    Runnable unit economics and sensitivity model
   output.md                    Generated report, committed

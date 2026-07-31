@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-"""Generate the Journal listing and article pages.
+"""Generate the Journal, the article pages and the Commission page.
 
-    python3 web/build-journal.py
+    python3 web/build-pages.py
 
 Writes web/journal/index.html plus one page per article. Five pages share one
 template, so the copy lives here and the design system cannot drift between them:
@@ -29,8 +29,11 @@ import pathlib
 import re
 import sys
 
+import pages_commission
+
 HERE = pathlib.Path(__file__).resolve().parent
 OUT = HERE / "journal"
+OUT_COMMISSION = HERE / "commission"
 
 SITE = "Antipode Motor Co."
 DISCLAIMER = (
@@ -43,7 +46,12 @@ DISCLAIMER = (
     "are in Australian dollars, exclude GST and the donor car unless stated."
 )
 
-NAV = """    <nav class="nav-solid" aria-label="Primary">
+def nav(root="../", journal="./", commission="../commission/", current=""):
+    """Primary nav. aria-current marks the page you are on for screen readers,
+    which the colour change alone does not communicate."""
+    def mark(key):
+        return ' aria-current="page"' if key == current else ""
+    return f"""    <nav class="nav-solid" aria-label="Primary">
       <a class="wordmark" href="{root}">Antipode Motor Co.</a>
       <details class="menu">
         <summary>Menu</summary>
@@ -51,9 +59,8 @@ NAV = """    <nav class="nav-solid" aria-label="Primary">
           <li><a href="{root}#philosophy">Philosophy</a></li>
           <li><a href="{root}#car">The Car</a></li>
           <li><a href="{root}#build">The Build</a></li>
-          <li><a href="{root}#places">The Places</a></li>
-          <li><a href="{journal}">Journal</a></li>
-          <li><a href="{root}#commission">Commission</a></li>
+          <li><a href="{journal}"{mark("journal")}>Journal</a></li>
+          <li><a href="{commission}"{mark("commission")}>Commission</a></li>
         </ul>
       </details>
     </nav>"""
@@ -72,9 +79,9 @@ ARTICLES = [
         "sources": "plan-v4 §5.3, §5.4, §7.6",
         "meta_title": "Why Australia Changes an Air-Cooled 911 | Antipode Journal",
         "meta_desc": (
-            "The 911 was built for autobahns, not for heat soak, dust and coarse "
-            "chip. What this continent asks of a car, and the 1,500 km protocol "
-            "every commission passes."
+            "Built for autobahns, not for heat soak, dust and coarse chip. What this "
+            "continent asks of a car, and the 1,500 km protocol every "
+            "commission passes."
         ),
         "standfirst": (
             "Salt air, heat soak, coarse chip and distance. The 911 was engineered "
@@ -135,8 +142,8 @@ ARTICLES = [
         "meta_title": "The G-Body 911: Why 1979 to 1985 | Antipode Journal",
         "meta_desc": (
             "Galvanised steel, honest supply and a known list of weaknesses. Why the "
-            "1979 to 1985 911 is the right foundation for a car meant to be driven, "
-            "and what we change."
+            "1979 to 1985 911 is the right foundation for a car meant to be "
+            "driven hard."
         ),
         "standfirst": (
             "Everyone else builds on the 964. We build on the car before it, for "
@@ -255,8 +262,8 @@ ARTICLES = [
         "meta_title": "How We Assess a Donor 911 | Antipode Journal",
         "meta_desc": (
             "A 140-point checklist, a certifier who signs before money moves, and a "
-            "rust threshold we will not cross. What we look for in a donor, and what "
-            "we walk away from."
+            "rust threshold we will not cross. What we look for in a donor, and "
+            "what we reject."
         ),
         "standfirst": (
             "The most consequential decision in a commission is made before anyone "
@@ -314,6 +321,95 @@ CLOSE_FINE = (
     "Nothing is payable to talk to us."
 )
 
+
+# Journal pages send the reader to one place: the Commission page, where the
+# pricing is answered in full and the form lives. Two competing CTAs at the foot
+# of an article split the click and answer neither question, so the primary
+# button goes to the price and the enquiry sits behind it as the second step.
+def close_cta(heading, body) -> str:
+    return f"""      <div class="article-close">
+        <div class="inner">
+          <p class="eyebrow-2">Begin a Commission</p>
+          <h2>{heading}</h2>
+          <p>{body}</p>
+          <p class="price-line">{CLOSE_PRICE}</p>
+          <a class="btn" href="../commission/">See what a commission costs</a>
+          <p class="alt-contact alt-contact--dark">
+            Or go straight to <a href="../commission/#enquire">the enquiry form</a>.
+          </p>
+          <p class="fineprint">{CLOSE_FINE}</p>
+        </div>
+      </div>"""
+
+
+
+# The single biggest conversion leak in the previous build was that every call to
+# action was a mailto: link. That needs a configured mail client, captures nothing,
+# and gives the sender no confirmation that anything happened. This is a real form,
+# with the mail address kept as a visible fallback rather than the only route.
+def form(prefix="../", compact=False):
+    heading = "Start the conversation" if not compact else "Enquire about a commission"
+    return f"""      <section class="enquiry-block" id="enquire">
+        <div class="enquiry-inner">
+          <p class="eyebrow-2">Private Enquiries</p>
+          <h2>{heading}</h2>
+          <p class="enquiry-lede">
+            Two to six cars a year, so every enquiry is read by a founder rather
+            than a mailbox. Tell us roughly what you have in mind and we will come
+            back within two business days.
+          </p>
+
+          <form class="enquiry" method="post" action="#" novalidate>
+            <div class="field">
+              <label for="name">Your name</label>
+              <input id="name" name="name" type="text" autocomplete="name" required
+                     aria-describedby="name-hint" />
+              <p class="hint" id="name-hint">So we know who we are writing back to.</p>
+            </div>
+            <div class="field">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" autocomplete="email"
+                     required aria-describedby="email-hint" />
+              <p class="hint" id="email-hint">We reply here. Never shared, never a list.</p>
+            </div>
+            <div class="field">
+              <label for="phone">Phone <span class="opt">optional</span></label>
+              <input id="phone" name="phone" type="tel" autocomplete="tel" />
+            </div>
+            <div class="field">
+              <label for="city">Where you are</label>
+              <input id="city" name="city" type="text" autocomplete="address-level2"
+                     placeholder="Sydney, or anywhere" />
+            </div>
+            <div class="field field--wide">
+              <label for="donor">The car you would start from</label>
+              <select id="donor" name="donor">
+                <option value="undecided">Not sure yet, talk me through it</option>
+                <option value="own">I already own a 911 to build on</option>
+                <option value="source">I would like you to find one</option>
+                <option value="looking">I am still deciding whether to commission</option>
+              </select>
+            </div>
+            <div class="field field--wide">
+              <label for="message">
+                What would you use it for? <span class="opt">optional</span>
+              </label>
+              <textarea id="message" name="message" rows="4"
+                        placeholder="Long weekends, a particular road, a particular colour. Anything."></textarea>
+            </div>
+            <p class="field--wide form-note">
+              No deposit is payable to talk to us, and an enquiry commits you to
+              nothing. A commissioning deposit follows a conversation, not this form.
+            </p>
+            <div class="field--wide">
+              <button class="btn btn-dark" type="submit">Send enquiry</button>
+              <p class="alt-contact">
+                Prefer email? <a href="mailto:commissions@antipodemotor.com">commissions@antipodemotor.com</a>
+              </p>
+            </div>
+          </form>
+        </div>
+      </section>"""
 
 def esc(t: str) -> str:
     return t
@@ -437,7 +533,7 @@ def build_article(art) -> str:
         "description": art["meta_desc"],
     }
     return f"""<!DOCTYPE html>
-<!-- Generated by web/build-journal.py. Edit the copy there, not here. -->
+<!-- Generated by web/build-pages.py. Edit the copy there, not here. -->
 <html lang="en-AU">
   <head>
 {head(art["meta_title"], art["meta_desc"], art["title"], art["standfirst"], canonical=f'/journal/{art["slug"]}')}
@@ -457,13 +553,14 @@ def build_article(art) -> str:
   <body>
     <a class="skip" href="#article">Skip to content</a>
 
-{NAV.format(root="../", journal="./")}
+{nav(current="journal")}
 
     <p class="breadcrumb">
       <a href="../">Home</a><span>/</span><a href="./">Journal</a><span>/</span>No.
       {art["no"]}
     </p>
 
+    <main>
     <article class="article" id="article">
       <div class="article-head">
         <p class="article-meta">
@@ -484,18 +581,7 @@ def build_article(art) -> str:
 {render_body(art["body"], art, ARTICLES)}
       </div>
 
-      <div class="article-close">
-        <div class="inner">
-          <p class="eyebrow-2">Begin a Commission</p>
-          <h2>{art["close_h"]}</h2>
-          <p>{art["close_p"]}</p>
-          <p class="price-line">{CLOSE_PRICE}</p>
-          <a class="btn" href="mailto:commissions@antipodemotor.com"
-            >Request a Private Conversation</a
-          >
-          <p class="fineprint">{CLOSE_FINE}</p>
-        </div>
-      </div>
+{close_cta(art["close_h"], art["close_p"])}
 
       <section class="related">
         <div class="related-head">
@@ -508,6 +594,7 @@ def build_article(art) -> str:
         </div>
       </section>
     </article>
+    </main>
 
 {footer()}
   </body>
@@ -521,7 +608,7 @@ def build_listing() -> str:
         cards.append(
             f'            <a class="j-card" href="{a["slug"]}">\n'
             f'              <p class="j-no">No. {a["no"]}</p>\n'
-            f'              <h3>{a["title"]}</h3>\n'
+            f'              <h2>{a["title"]}</h2>\n'
             f'              <p>{a["standfirst"]}</p>\n'
             f'              <p class="j-tag">{a["tag"]} &middot; {a["read"]}</p>\n'
             f'              <p class="j-more">Read this</p>\n'
@@ -533,7 +620,7 @@ def build_listing() -> str:
         "Antipode workshop in Sydney. Four pieces, no advertorial."
     )
     return f"""<!DOCTYPE html>
-<!-- Generated by web/build-journal.py. Edit the copy there, not here. -->
+<!-- Generated by web/build-pages.py. Edit the copy there, not here. -->
 <html lang="en-AU">
   <head>
 {head("The Journal | Antipode Motor Co.", desc, "The Antipode Journal", desc, prefix="../", canonical="/journal/")}
@@ -541,7 +628,7 @@ def build_listing() -> str:
   <body>
     <a class="skip" href="#listing">Skip to content</a>
 
-{NAV.format(root="../", journal="./")}
+{nav(current="journal")}
 
     <p class="breadcrumb"><a href="../">Home</a><span>/</span>Journal</p>
 
@@ -561,21 +648,11 @@ def build_listing() -> str:
         </div>
       </div>
 
-      <div class="article-close">
-        <div class="inner">
-          <p class="eyebrow-2">Begin a Commission</p>
-          <h2>Two to six cars a year. The conversation comes first.</h2>
-          <p>
-            If any of this is the way you think about cars, the next step is a
-            conversation about the one you would build. No deposit, no obligation.
-          </p>
-          <p class="price-line">{CLOSE_PRICE}</p>
-          <a class="btn" href="mailto:commissions@antipodemotor.com"
-            >Request a Private Conversation</a
-          >
-          <p class="fineprint">{CLOSE_FINE}</p>
-        </div>
-      </div>
+{close_cta(
+    "Two to six cars a year. The conversation comes first.",
+    "If any of this is the way you think about cars, the next step is a "
+    "conversation about the one you would build. No deposit, no obligation.",
+)}
     </main>
 
 {footer()}
@@ -598,7 +675,16 @@ def main() -> int:
             for _, c in art["body"] if c
         )
         print(f'  journal/{art["slug"]}.html  ({words} words, {art["sources"]})')
-    print(f"\n{len(ARTICLES) + 1} pages written to {OUT.relative_to(HERE.parent)}")
+    OUT_COMMISSION.mkdir(parents=True, exist_ok=True)
+    (OUT_COMMISSION / "index.html").write_text(
+        pages_commission.build(head, nav, footer, form)
+    )
+    print(
+        f"  commission/index.html  "
+        f'({len(pages_commission.LADDER)} tiers, {len(pages_commission.FAQ)} FAQs)'
+    )
+
+    print(f"\n{len(ARTICLES) + 2} pages written under web/")
     return 0
 
 

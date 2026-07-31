@@ -67,10 +67,6 @@ img {
   max-width: 100%;
 }
 
-.sans {
-  font-family: var(--grotesque);
-}
-
 /* Keyboard users first. */
 .skip {
   position: absolute;
@@ -876,10 +872,13 @@ footer {
   font-variant-numeric: tabular-nums;
 }
 
-.j-card h3 {
+.j-card :is(h2, h3) {
   font-family: var(--serif);
   font-size: 1.3rem;
+  font-weight: 400;
   line-height: 1.3;
+  letter-spacing: 0.01em;
+  text-transform: none;
   margin: 15px 0 12px;
 }
 
@@ -1269,13 +1268,13 @@ a.j-card:hover {
   background: var(--stone);
 }
 
-a.j-card h3 {
+a.j-card :is(h2, h3) {
   text-decoration: underline;
   text-decoration-color: var(--line);
   text-underline-offset: 3px;
 }
 
-a.j-card:hover h3 {
+a.j-card:hover :is(h2, h3) {
   text-decoration-color: var(--ochre);
 }
 
@@ -1298,10 +1297,566 @@ a.j-card:hover h3 {
 
 .journal-lede a {
   color: var(--ochre-ink);
-  text-decoration: none;
-  border-bottom: 1px solid var(--ochre);
-  display: inline-flex;
-  align-items: center;
+  display: inline-block;
+  padding: 13px 2px;
+  text-decoration: underline;
+  text-decoration-color: var(--ochre);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+}
+
+/* --- Commission page: the published ladder ------------------------------- */
+
+/* The plan kept the Stack A/B/C ladder internal and published nothing. That is
+   overruled (decisions/ADR-0007), so this page has to do the job a price page
+   does: answer the number, then answer the objection that follows it, in that
+   order. The tiers are cards because they are a choice; the terms below them
+   are lists because they are not. */
+
+.listing-note {
+  margin-top: 22px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--muted);
+  max-width: 40rem;
+}
+
+.listing-note b {
+  font-weight: 400;
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+}
+
+.tiers {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;                    /* hairlines between cards, not around them */
+  background: var(--line);
+  border: 1px solid var(--line);
+}
+
+/* Cards are equal-height columns so the price line and the button line up
+   across all three regardless of how long each inclusion list runs. */
+.tier {
+  display: flex;
+  flex-direction: column;
+  background: var(--paper);
+  padding: 34px 30px 30px;
+}
+
+.tier--featured {
+  background: var(--stone);
+}
+
+.tier-badge {
+  font-family: var(--grotesque);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ochre-ink);
+  margin-bottom: 14px;
+}
+
+/* Every card reserves the badge's height so the three headings stay on one
+   optical line even though only one card carries a badge. */
+.tier:not(.tier--featured) .tier-name {
+  margin-top: 30px;
+}
+
+/* An h2 so the ladder sits one level under the page h1 rather than skipping to
+   h3. The global h2 is uppercase display type, which is wrong at card scale. */
+.tier-name {
+  font-family: var(--serif);
+  font-size: 1.5rem;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  text-transform: none;
+  line-height: 1.25;
+  margin-bottom: 10px;
+}
+
+.tier-price {
+  font-family: var(--serif);
+  font-size: clamp(1.9rem, 1.5rem + 1.2vw, 2.4rem);
+  line-height: 1.1;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.01em;
+}
+
+.tier-sub {
+  margin-top: 10px;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+.tier-engine {
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+  font-family: var(--grotesque);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+.tier-list {
+  margin: 22px 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 11px;
+}
+
+.tier-list li {
+  position: relative;
+  padding-left: 20px;
+  font-size: 0.98rem;
+  line-height: 1.55;
+}
+
+.tier-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.62em;
+  width: 9px;
+  height: 1px;
+  background: var(--ochre);
+}
+
+.tier-foot {
+  margin-top: auto;
+  padding-top: 22px;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.tier-cta {
+  margin-top: 18px;
+  align-self: start;
+  padding: 14px 26px;
+}
+
+.founders-note {
+  max-width: 46rem;
+  margin: 30px auto 0;
+  padding: 22px 26px;
+  background: var(--stone);
+  border-left: 2px solid var(--ochre);
+  font-size: 1.02rem;
+  line-height: 1.7;
+}
+
+.founders-note b {
+  font-weight: 400;
+  font-family: var(--serif);
+  font-variant-numeric: tabular-nums;
+}
+
+@media (max-width: 62rem) {
+  .tiers {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  /* Once stacked there is no optical line to hold, so drop the reserved space. */
+  .tier:not(.tier--featured) .tier-name {
+    margin-top: 0;
+  }
+}
+
+/* --- Commission page: terms blocks -------------------------------------- */
+
+/* section carries 120px of gutter padding globally. These are nested inside the
+   page wrapper, so they reset it and separate with a rule instead. */
+.block {
+  max-width: 46rem;
+  margin: 80px auto 0;
+  padding: 44px 0 0;
+  border-top: 1px solid var(--line);
+}
+
+.block h2 {
+  font-size: clamp(1.6rem, 1.3rem + 1.4vw, 2.1rem);
+}
+
+.block-lede {
+  margin-top: 20px;
+  max-width: 38rem;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--muted);
+}
+
+.block-note {
+  margin-top: 26px;
+  max-width: 38rem;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--muted);
+}
+
+.block .terms-dl {
+  margin: 30px 0 0;
+  display: grid;
+  gap: 0;
+}
+
+.terms-dl > div {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(9rem, auto);
+  gap: 6px 30px;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.terms-dl > div:first-child {
+  border-top: 1px solid var(--line);
+}
+
+.terms-dl > div:last-child {
+  border-bottom: none;
+}
+
+.terms-dl dt {
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  line-height: 1.4;
+}
+
+.opt-note {
+  display: block;
+  margin-top: 7px;
+  font-family: var(--grotesque);
+  font-size: 13px;
+  letter-spacing: 0.01em;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+.terms-dl dd {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+  white-space: nowrap;
+}
+
+@media (max-width: 34rem) {
+  .terms-dl > div {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 8px;
+  }
+
+  .terms-dl dd {
+    text-align: left;
+    order: -1;
+    font-size: 1.05rem;
+    color: var(--ochre-ink);
+  }
+}
+
+/* --- Commission page: payment stages ------------------------------------ */
+
+.pay-steps {
+  margin: 30px 0 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: pay;
+  display: grid;
+  gap: 0;
+}
+
+.pay-steps li {
+  counter-increment: pay;
+  display: grid;
+  grid-template-columns: 2.2rem minmax(6rem, 9rem) minmax(0, 1fr);
+  align-items: baseline;
+  gap: 8px 22px;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.pay-steps li:first-child {
+  border-top: 1px solid var(--line);
+}
+
+.pay-steps li:last-child {
+  border-bottom: none;
+}
+
+.pay-steps li::before {
+  content: counter(pay, decimal-leading-zero);
+  font-family: var(--grotesque);
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  color: var(--ochre-ink);
+}
+
+.pay-amt {
+  font-family: var(--serif);
+  font-size: 1.3rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.pay-when {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+@media (max-width: 34rem) {
+  .pay-steps li {
+    grid-template-columns: 2.2rem minmax(0, 1fr);
+  }
+
+  .pay-when {
+    grid-column: 2;
+  }
+}
+
+/* --- Commission page: objection handling -------------------------------- */
+
+/* Answers are collapsed because the questions themselves are the skim path: a
+   reader with one specific worry should be able to find it without reading the
+   other seven. */
+.faq {
+  border-bottom: 1px solid var(--line);
+}
+
+.faq:first-of-type {
+  border-top: 1px solid var(--line);
+  margin-top: 30px;
+}
+
+.faq > summary {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 20px 0;
   min-height: 44px;
-  padding-inline: 2px;
+  cursor: pointer;
+  font-family: var(--serif);
+  font-size: 1.12rem;
+  line-height: 1.5;
+  list-style: none;
+}
+
+.faq > summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq > summary::after {
+  content: "+";
+  margin-left: auto;
+  flex: none;
+  font-family: var(--grotesque);
+  font-size: 1.25rem;
+  line-height: 1;
+  color: var(--ochre-ink);
+}
+
+.faq[open] > summary::after {
+  content: "\2013";           /* en dash, so the two states are the same width */
+}
+
+.faq > summary:focus-visible {
+  outline: 2px solid var(--ochre-ink);
+  outline-offset: 3px;
+}
+
+.faq-body {
+  padding: 0 0 22px;
+  max-width: 40rem;
+}
+
+.faq-body p {
+  font-size: 1.02rem;
+  line-height: 1.75;
+  color: var(--muted);
+}
+
+/* --- Enquiry form ------------------------------------------------------- */
+
+/* Replaces the mailto: link that used to be the only route in. A mailto needs a
+   configured mail client, captures nothing, and tells the sender nothing
+   happened. The address stays as a visible fallback, not as the mechanism. */
+.enquiry-block {
+  margin-top: 90px;
+  padding: 70px var(--gutter) 100px;
+  background: var(--stone);
+  border-top: 1px solid var(--line);
+}
+
+.enquiry-inner {
+  max-width: 46rem;
+  margin: 0 auto;
+}
+
+.enquiry-block h2 {
+  font-size: clamp(1.7rem, 1.4rem + 1.5vw, 2.3rem);
+}
+
+.enquiry-lede {
+  margin-top: 20px;
+  max-width: 38rem;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--muted);
+}
+
+.enquiry {
+  margin-top: 38px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px 28px;
+}
+
+.field {
+  display: grid;
+  align-content: start;
+  gap: 8px;
+}
+
+.field--wide {
+  grid-column: 1 / -1;
+}
+
+.enquiry label {
+  font-family: var(--grotesque);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+
+.opt {
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: none;
+  color: var(--muted);
+}
+
+/* 16px is the floor that stops iOS Safari zooming the viewport on focus. */
+.enquiry input,
+.enquiry select,
+.enquiry textarea {
+  width: 100%;
+  min-height: 48px;
+  padding: 13px 14px;
+  font-family: var(--serif);
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--ink);
+  background: var(--paper);
+  border: 1px solid rgba(28, 26, 23, 0.28);
+  border-radius: 0;
+  appearance: none;
+}
+
+.enquiry textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+/* A native select with appearance:none loses its arrow, so it is drawn back on
+   as a background chevron rather than left looking like a text input. */
+.enquiry select {
+  padding-right: 40px;
+  background-image: linear-gradient(45deg, transparent 50%, var(--ink) 50%),
+    linear-gradient(135deg, var(--ink) 50%, transparent 50%);
+  background-position: calc(100% - 20px) calc(50% + 2px),
+    calc(100% - 14px) calc(50% + 2px);
+  background-size: 6px 6px, 6px 6px;
+  background-repeat: no-repeat;
+}
+
+.enquiry input:focus-visible,
+.enquiry select:focus-visible,
+.enquiry textarea:focus-visible {
+  outline: 2px solid var(--ochre-ink);
+  outline-offset: 1px;
+  border-color: var(--ink);
+}
+
+.enquiry input::placeholder,
+.enquiry textarea::placeholder {
+  color: #6b665d;            /* 4.6:1 on paper; placeholders are still read */
+}
+
+.hint {
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+/* The thing that actually stops an enquiry is not knowing what the enquiry
+   commits you to, so it is answered immediately above the button. */
+.form-note {
+  margin-top: 4px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--muted);
+  max-width: 40rem;
+}
+
+.enquiry button.btn {
+  margin-top: 0;
+  cursor: pointer;
+  background: none;
+}
+
+.alt-contact {
+  margin-top: 20px;
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+.alt-contact a {
+  color: var(--ochre-ink);
+  display: inline-block;
+  padding: 13px 2px;
+  text-decoration: underline;
+  text-decoration-color: var(--ochre);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+}
+
+.alt-contact a:hover {
+  text-decoration-color: var(--ochre-ink);
+}
+
+/* On the ink-ground closing block the ochre text token has no contrast, so the
+   link inverts to paper instead of inheriting. */
+.alt-contact--dark {
+  color: #cfc9bc;
+}
+
+.alt-contact--dark a {
+  color: var(--paper);
+  text-decoration-color: rgba(244, 241, 234, 0.55);
+}
+
+.alt-contact--dark a:hover {
+  text-decoration-color: var(--paper);
+}
+
+@media (max-width: 40rem) {
+  .enquiry {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 22px;
+  }
+
+  .enquiry-block {
+    padding: 56px var(--gutter) 76px;
+  }
 }
