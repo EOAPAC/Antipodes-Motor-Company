@@ -1,615 +1,477 @@
 <!DOCTYPE html>
 <!--
-  Antipode Motor Co. — homepage
-  Built to the content specification in reference/plan-a-atelier.md, section
-  "Homepage content specification", and the art direction in
-  docs/04-brand-clearance.md.
+  Antipode Motor Co. — brand site
+  Creative direction as supplied: cinematic, editorial, no spec sheets, no price
+  tables, no transactional language.
 
-  BEFORE THIS GOES PUBLIC, read web/ASSET-CLEARANCE.md. Every render currently
-  wired in carries Porsche badging (crest and/or script) and an "AI 生成"
-  watermark. None of them is cleared for publication as supplied. The markup is
-  ready; the images are not.
+  Two deliberate departures from the supplied file, both documented:
+  1. The S3 image URLs are replaced with local assets. Upload-bucket links rot,
+     and a repo that depends on them stops rendering. Assets now live in
+     web/assets/ and are built by web/build-images.py.
+  2. A non-affiliation disclaimer is added to the footer. The supplied footer had
+     none. Section 2 of reference/plan-v3-master.md requires the disclaimer
+     regime before launch, and the Singer dispute turned on exactly this wording.
+
+  Six of the ten renders still carry Porsche badging. See web/ASSET-CLEARANCE.md.
+  The page is noindex until that register closes.
 -->
 <html lang="en-AU">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Antipode Motor Co. — the air-cooled 911, rebuilt for Australia</title>
+    <title>Antipode Motor Co.</title>
     <meta
       name="description"
-      content="Antipode Motor Co. builds bespoke restomods on 1979 to 1985 galvanised G-body Porsche 911 donors, by hand in Artarmon, Sydney, certified for Australian roads."
+      content="Antipode creates deeply personal air-cooled commissions in Sydney: restored with patience, shaped by place, and made for the long way home."
     />
-    <meta name="theme-color" content="#14150f" />
+    <meta name="theme-color" content="#1c1a17" />
     <meta name="robots" content="noindex, nofollow" />
-    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2314150f'/%3E%3Ccircle cx='16' cy='16' r='7' fill='none' stroke='%23b24a24' stroke-width='2.5'/%3E%3Ccircle cx='16' cy='16' r='2' fill='%23ede7d8'/%3E%3C/svg%3E" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%231c1a17'/%3E%3Ccircle cx='16' cy='16' r='7' fill='none' stroke='%23a5713d' stroke-width='2.5'/%3E%3Ccircle cx='16' cy='16' r='2' fill='%23f4f1ea'/%3E%3C/svg%3E"
+    />
     <link rel="stylesheet" href="styles.css" />
   </head>
-
   <body>
-    <a class="skip" href="#main">Skip to content</a>
+    <a class="skip" href="#philosophy">Skip to content</a>
 
-    <!-- ================= 1. Hero ================= -->
-    <header class="hero">
-      <div class="masthead">
-        <a class="wordmark" href="#top">Antipode</a>
-        <nav aria-label="Primary">
-          <ul>
-            <li><a href="#the-car">The car</a></li>
-            <li><a href="#philosophy">Philosophy</a></li>
-            <li><a href="#build">The build</a></li>
-            <li><a href="#specifications">Specifications</a></li>
-            <li><a href="#commission">Commissioning</a></li>
-            <li><a href="#enquiry">Enquire</a></li>
-          </ul>
-        </nav>
-      </div>
+    <nav>
+      <a class="wordmark" href="#top">Antipode Motor Co.</a>
+      <ul>
+        <li><a href="#philosophy">Philosophy</a></li>
+        <li><a href="#the-car">The Car</a></li>
+        <li><a href="#places">Places</a></li>
+        <li><a href="#commission">Commission</a></li>
+      </ul>
+    </nav>
 
-      <div class="hero__media">
-        <picture>
-          <source
-            type="image/webp"
-            srcset="
-              assets/img/coast-dusk-motion@900.webp  900w,
-              assets/img/coast-dusk-motion.webp     1600w
-            "
-            sizes="100vw"
-          />
-          <img
-            src="assets/img/coast-dusk-motion.jpg"
-            srcset="
-              assets/img/coast-dusk-motion@900.jpg  900w,
-              assets/img/coast-dusk-motion.jpg     1600w
-            "
-            sizes="100vw"
-            alt="A dark blue Porsche 911 reimagined by Antipode, driving a coastal road at dusk with the ocean behind it."
-            width="1600"
-            height="837"
-            fetchpriority="high"
-            decoding="async"
-          />
-        </picture>
-      </div>
-
-      <div class="hero__inner" id="top">
-        <p class="eyebrow">Artarmon, Sydney &middot; 1979&ndash;1985 G-body</p>
-        <h1>Engineered for the other&nbsp;side of the world.</h1>
-        <p class="lede">
-          A Porsche 911 reimagined by Antipode. Built by master hands in Sydney,
-          on the most honest of the air-cooled cars, and certified for
-          Australian roads.
+    <header class="hero" id="top">
+      <picture>
+        <source
+          type="image/webp"
+          srcset="
+            assets/img/clifftop-basalt-front@900.webp  900w,
+            assets/img/clifftop-basalt-front.webp     1600w
+          "
+          sizes="100vw"
+        />
+        <img
+          src="assets/img/clifftop-basalt-front.jpg"
+          srcset="
+            assets/img/clifftop-basalt-front@900.jpg  900w,
+            assets/img/clifftop-basalt-front.jpg     1600w
+          "
+          sizes="100vw"
+          alt="A dark green Antipode commission on a coastal clifftop at sunset, ocean behind."
+          width="1600"
+          height="851"
+          fetchpriority="high"
+          decoding="async"
+        />
+      </picture>
+      <div class="hero-copy">
+        <p class="eyebrow">Engineered for the other side of the world.</p>
+        <h1>Cars for roads that are worth the drive.</h1>
+        <p>
+          Antipode creates deeply personal air-cooled commissions: restored with
+          patience, shaped by place, and made for the long way home.
         </p>
-        <div class="btn-row">
-          <a class="btn btn--accent" href="#enquiry">Commission a car</a>
-          <a class="btn btn--quiet" href="#philosophy">See the philosophy</a>
-        </div>
+        <a class="btn" href="#enquiry">Begin a Private Commission</a>
       </div>
     </header>
 
-    <main id="main">
-      <!-- ================= 2. The car ================= -->
-      <section class="section shell" id="the-car">
-        <div class="split">
-          <div class="split__text">
-            <p class="eyebrow">The car</p>
-            <h2>One car.<br />Built around you.</h2>
-            <div class="prose">
-              <p>
-                We start with a 1979 to 1985 Porsche 911, the galvanised
-                G-body, the most plentiful and most honest of the air-cooled
-                cars. We strip it to bare metal, correct four decades of wear
-                and every known weakness, and rebuild it as a modern classic
-                tuned for real Australian driving.
-              </p>
-              <p>
-                Air-cooled flat-six. Manual gearbox. Nothing you do not need.
-                Everything you do.
-              </p>
-            </div>
-          </div>
-          <figure class="figure">
-            <picture>
-              <source
-                type="image/webp"
-                srcset="assets/img/outback-ochre-rear@900.webp 900w, assets/img/outback-ochre-rear.webp 1600w"
-                sizes="(max-width: 54rem) 92vw, 46vw"
-              />
-              <img
-                src="assets/img/outback-ochre-rear@900.jpg"
-                srcset="assets/img/outback-ochre-rear@900.jpg 900w, assets/img/outback-ochre-rear.jpg 1600w"
-                sizes="(max-width: 54rem) 92vw, 46vw"
-                alt="Rear three-quarter view of an ochre-red Antipode car on a red-dirt outback road at golden hour, escarpment on the horizon."
-                width="900"
-                height="471"
-                loading="lazy"
-                decoding="async"
-              />
-            </picture>
-            <figcaption>Gibber Ochre &middot; concept render</figcaption>
-          </figure>
-        </div>
-      </section>
-
-      <!-- ================= 3. Philosophy ================= -->
-      <section class="section shell" id="philosophy">
-        <p class="eyebrow">The philosophy &middot; Rugged purity</p>
-        <h2>Built for 42 degrees, not 12.</h2>
-        <div class="prose">
-          <p>
-            The 911 was engineered for European roads and European weather. We
-            engineer ours for coarse-chip country roads, summer heat, dust and
-            distance. Cooling, fuelling and sealing are specified for our
-            climate. The paint is chosen to live outdoors. The cabin is made to
-            be used.
-          </p>
-          <p>
-            This is not a museum piece. It is a car built to be driven the
-            length of a continent.
+    <main>
+      <section id="philosophy">
+        <div class="section-head left">
+          <div class="rule"></div>
+          <h2>The road is part of the design.</h2>
+          <p class="lead">
+            Australia changes quickly beneath a car.<span class="para-break"
+            ></span><br /><br />One hour, salt air and a coastal horizon.<br />The
+            next, rain in the trees. Heat on the plain.<br />A surface that asks
+            more of the suspension, the cooling,<br />the seats and the person
+            behind the wheel.<span class="para-break"></span><br /><br />Antipode
+            begins there.<span class="para-break"></span><br /><br />We take the
+            enduring shape of an air-cooled 911 and<br />make it feel entirely at
+            home on this side of the world.<br />Not as a replica of the past,
+            but as a car with many more<br />miles ahead of it.
           </p>
         </div>
+      </section>
 
-        <div class="pillars">
-          <article class="pillar">
-            <span class="pillar__num">01</span>
-            <h3>Biome-specific engineering</h3>
+      <picture>
+        <source
+          type="image/webp"
+          srcset="
+            assets/img/forest-bone-headon@900.webp  900w,
+            assets/img/forest-bone-headon.webp     1600w
+          "
+          sizes="100vw"
+        />
+        <img
+          src="assets/img/forest-bone-headon.jpg"
+          srcset="
+            assets/img/forest-bone-headon@900.jpg  900w,
+            assets/img/forest-bone-headon.jpg     1600w
+          "
+          sizes="100vw"
+          alt="An ivory Antipode commission on a track through misty eucalypt forest at first light."
+          width="1600"
+          height="851"
+          class="full-image"
+          loading="lazy"
+          decoding="async"
+        />
+      </picture>
+
+      <section>
+        <div class="wrap pillars">
+          <div class="pillar">
+            <h3>Distance</h3>
             <p>
-              Cooling, fuelling and sealing specified for Australian heat and
-              dust. Suspension tuned for coarse-chip country roads rather than
-              alpine passes.
+              Built for early departures, long lunches, changing weather and
+              roads that continue after the map becomes less certain.
             </p>
-          </article>
-          <article class="pillar">
-            <span class="pillar__num">02</span>
-            <h3>The over-the-shoulder build</h3>
+          </div>
+          <div class="pillar">
+            <h3>Feel</h3>
             <p>
-              One workshop in Artarmon. Named technicians you can meet. A
-              documented build journal and an open invitation to stand in the
-              workshop while your car is made.
+              The weight of the steering. The sound behind you. The click of a
+              switch. The details that make a drive memorable.
             </p>
-          </article>
-          <article class="pillar">
-            <span class="pillar__num">03</span>
-            <h3>Compliance as a feature</h3>
+          </div>
+          <div class="pillar">
+            <h3>Belonging</h3>
             <p>
-              Certified under the NSW Vehicle Safety Compliance Certification
-              Scheme by a licensed certifier, with the original shell and VIN
-              retained. A car you can register, insure and resell.
+              Each commission is shaped around its owner, then finished to belong
+              to a particular life, collection and corner of the world.
             </p>
-          </article>
+          </div>
         </div>
       </section>
 
-      <!-- Full-bleed plate -->
-      <figure class="plate">
-        <picture>
-          <source
-            type="image/webp"
-            srcset="assets/img/outback-basalt-front@900.webp 900w, assets/img/outback-basalt-front.webp 1600w"
-            sizes="100vw"
-          />
-          <img
-            src="assets/img/outback-basalt-front.jpg"
-            srcset="assets/img/outback-basalt-front@900.jpg 900w, assets/img/outback-basalt-front.jpg 1600w"
-            sizes="100vw"
-            alt="Front three-quarter view of a dark green Antipode car on a red-dirt outback road at golden hour."
-            width="1600"
-            height="837"
-            loading="lazy"
-            decoding="async"
-          />
-        </picture>
-        <figcaption class="plate__caption">
-          Basalt &middot; concept render
-        </figcaption>
-      </figure>
+      <section id="the-car" style="background: var(--stone)">
+        <div class="section-head left">
+          <div class="rule"></div>
+          <h2>A familiar shape.<br />A different sense of place.</h2>
+          <p class="lead">
+            Every Antipode begins with a 1979&ndash;1985 air-cooled 911.<span
+              class="para-break"
+            ></span><br /><br />The proportions remain recognisable: compact,
+            upright, unmistakable. But the experience becomes more complete.<br />The
+            car is restored in its entirety, reconsidered in detail, and tuned to
+            become more involving with every kilometre.<span
+              class="para-break"
+            ></span><br /><br />Nothing is added simply to announce itself.<br />Everything
+            is considered because it will be touched, heard, seen or relied upon.
+          </p>
+        </div>
 
-      <!-- ================= 4. The build journey ================= -->
-      <section class="section shell" id="build">
-        <div class="split split--text-first">
-          <div class="split__text">
-            <p class="eyebrow">The build</p>
-            <h2>You can watch it happen.</h2>
-            <div class="prose">
-              <p>
-                Every Antipode is built in one workshop in Artarmon, Sydney, by
-                named technicians you can meet. From donor selection to the
-                first start of the rebuilt engine, you receive a documented
-                build journal and an open invitation to stand in the workshop.
-              </p>
-              <p>Most owners visit more than once. That is the point.</p>
-            </div>
+        <div class="car-grid">
+          <picture>
+            <source
+              type="image/webp"
+              srcset="
+                assets/img/workshop-bone-rear@900.webp  900w,
+                assets/img/workshop-bone-rear.webp     1600w
+              "
+              sizes="(max-width: 820px) 92vw, 46vw"
+            />
+            <img
+              src="assets/img/workshop-bone-rear@900.jpg"
+              srcset="
+                assets/img/workshop-bone-rear@900.jpg  900w,
+                assets/img/workshop-bone-rear.jpg     1600w
+              "
+              sizes="(max-width: 820px) 92vw, 46vw"
+              alt="Rear three-quarter view of an Antipode commission in the workshop under warm light."
+              width="900"
+              height="471"
+              loading="lazy"
+              decoding="async"
+            />
+          </picture>
+          <picture>
+            <source
+              type="image/webp"
+              srcset="
+                assets/img/interior-tan@900.webp  900w,
+                assets/img/interior-tan.webp     1536w
+              "
+              sizes="(max-width: 820px) 92vw, 46vw"
+            />
+            <img
+              src="assets/img/interior-tan@900.jpg"
+              srcset="
+                assets/img/interior-tan@900.jpg  900w,
+                assets/img/interior-tan.jpg     1536w
+              "
+              sizes="(max-width: 820px) 92vw, 46vw"
+              alt="Cabin of an Antipode commission in saddle leather with houndstooth seat inserts and machined metal."
+              width="900"
+              height="541"
+              loading="lazy"
+              decoding="async"
+            />
+          </picture>
+        </div>
+
+        <div class="spec-band">
+          <div class="spec">
+            <b>Air-Cooled</b>
+            <p>A mechanical conversation, not a simulation.</p>
           </div>
-          <figure class="figure">
+          <div class="spec">
+            <b>One Owner</b>
+            <p>A commission developed around a single point of view.</p>
+          </div>
+          <div class="spec">
+            <b>Made to Go</b>
+            <p>Created for the journey beyond the handover.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="places">
+        <div class="section-head">
+          <div class="rule"></div>
+          <h2>The continent in the car.</h2>
+          <p class="lead-center">
+            The coast after rain. Eucalypt forest before sunrise.<br />A red road
+            at the end of a long day.<span class="para-break"></span><br /><br />Antipode
+            is not defined by one landscape.<br />It is defined by the change
+            between them.<span class="para-break"></span><br /><br />That is
+            where these cars make sense:<br />not under lights, but in the space
+            between one place and the next.
+          </p>
+        </div>
+
+        <div class="gallery">
+          <figure class="g-wide">
             <picture>
               <source
                 type="image/webp"
-                srcset="assets/img/workshop-bone-rear@900.webp 900w, assets/img/workshop-bone-rear.webp 1600w"
-                sizes="(max-width: 54rem) 92vw, 46vw"
+                srcset="
+                  assets/img/coast-midnight-motion@900.webp  900w,
+                  assets/img/coast-midnight-motion.webp     1600w
+                "
+                sizes="(max-width: 1200px) 100vw, 1200px"
               />
               <img
-                src="assets/img/workshop-bone-rear@900.jpg"
-                srcset="assets/img/workshop-bone-rear@900.jpg 900w, assets/img/workshop-bone-rear.jpg 1600w"
-                sizes="(max-width: 54rem) 92vw, 46vw"
-                alt="Rear three-quarter view of a bone-white Antipode car in a workshop, warm directional light, ducktail spoiler."
-                width="900"
-                height="471"
+                src="assets/img/coast-midnight-motion.jpg"
+                srcset="
+                  assets/img/coast-midnight-motion@900.jpg  900w,
+                  assets/img/coast-midnight-motion.jpg     1600w
+                "
+                sizes="(max-width: 1200px) 100vw, 1200px"
+                alt="A midnight blue Antipode commission driving a coastal road at dusk."
+                width="1600"
+                height="851"
                 loading="lazy"
                 decoding="async"
               />
             </picture>
-            <figcaption>Nullarbor Bone &middot; concept render</figcaption>
+            <figcaption>Coastal Road / Dusk</figcaption>
           </figure>
-        </div>
-      </section>
-
-      <!-- ================= 5. Specifications ================= -->
-      <section class="section shell" id="specifications">
-        <p class="eyebrow">Specifications</p>
-        <h2>What is under the skin.</h2>
-
-        <dl class="spec-band">
-          <div>
-            <dt>Donor</dt>
-            <dd>1979&ndash;1985</dd>
-          </div>
-          <div>
-            <dt>Engine</dt>
-            <dd>Air-cooled flat-six</dd>
-          </div>
-          <div>
-            <dt>Output</dt>
-            <dd>210&ndash;260 kW</dd>
-          </div>
-          <div>
-            <dt>Gearbox</dt>
-            <dd>Five-speed manual</dd>
-          </div>
-          <div>
-            <dt>Certification</dt>
-            <dd>NSW VSCCS</dd>
-          </div>
-        </dl>
-
-        <div class="split" style="margin-top: 4rem">
-          <dl class="spec-list">
-            <div>
-              <dt>Donor</dt>
-              <dd>
-                1979 to 1985 911 SC or 3.2 Carrera. Original galvanised shell
-                and VIN retained and repaired, never replaced.
-              </dd>
-            </div>
-            <div>
-              <dt>Engine</dt>
-              <dd>
-                Rebuilt air-cooled flat-six. Pressure-fed timing-chain
-                tensioners, upgraded fuelling and cooling. Tuned for mid-range
-                torque rather than a headline peak.
-              </dd>
-            </div>
-            <div>
-              <dt>Transmission</dt>
-              <dd>Five-speed manual, rebuilt, with a sprung clutch centre.</dd>
-            </div>
-            <div>
-              <dt>Chassis</dt>
-              <dd>
-                Uprated brakes and suspension tuned for Australian roads. 17 to
-                18 inch forged wheels.
-              </dd>
-            </div>
-            <div>
-              <dt>Cabin</dt>
-              <dd>
-                Bespoke leather interior with concealed modern audio. No
-                screens.
-              </dd>
-            </div>
-            <div>
-              <dt>Build time</dt>
-              <dd>Twelve to eighteen months, documented throughout.</dd>
-            </div>
-            <div>
-              <dt>Compliance</dt>
-              <dd>
-                Full NSW VSCCS certification by a licensed certifier. Figures
-                confirmed per commission.
-              </dd>
-            </div>
-          </dl>
-
-          <figure class="figure">
+          <figure class="g-half">
             <picture>
               <source
                 type="image/webp"
-                srcset="assets/img/interior-cognac@900.webp 900w, assets/img/interior-cognac.webp 1536w"
-                sizes="(max-width: 54rem) 92vw, 46vw"
-              />
-              <img
-                src="assets/img/interior-cognac@900.jpg"
-                srcset="assets/img/interior-cognac@900.jpg 900w, assets/img/interior-cognac.jpg 1536w"
-                sizes="(max-width: 54rem) 92vw, 46vw"
-                alt="Cabin of an Antipode car: cognac leather with houndstooth seat centres, five classic dials, machined metal gear lever, no screens."
-                width="900"
-                height="558"
-                loading="lazy"
-                decoding="async"
-              />
-            </picture>
-            <figcaption>Cognac and houndstooth &middot; concept render</figcaption>
-          </figure>
-        </div>
-      </section>
-
-      <!-- ================= Pull quote ================= -->
-      <section class="section pull">
-        <div class="shell">
-          <blockquote>
-            <p>
-              The air-cooled 911 was built for autobahns and alpine passes.
-              Australia is neither.
-            </p>
-            <footer>The Antipode thesis</footer>
-          </blockquote>
-        </div>
-      </section>
-
-      <!-- ================= 6. Commissioning ================= -->
-      <section class="section shell" id="commission">
-        <p class="eyebrow">Commissioning</p>
-        <h2>How a commission works.</h2>
-        <p class="lede">
-          Five stages over twelve to eighteen months, paid against milestones
-          rather than up front.
-        </p>
-
-        <div class="journey">
-          <article class="journey__step">
-            <p class="journey__when">Stage one</p>
-            <div>
-              <h3>Conversation</h3>
-              <p>
-                We meet, understand the car you want, and confirm feasibility
-                before anyone commits to anything.
-              </p>
-            </div>
-          </article>
-          <article class="journey__step">
-            <p class="journey__when">Stage two</p>
-            <div>
-              <h3>Deposit and donor</h3>
-              <p>
-                You place a commissioning deposit and we secure the right donor
-                together. The donor is bought with your funds and titled to
-                you.
-              </p>
-            </div>
-          </article>
-          <article class="journey__step">
-            <p class="journey__when">Stage three</p>
-            <div>
-              <h3>Design</h3>
-              <p>
-                We agree the specification, colour and cabin down to the
-                stitch, and the engineering brief that follows from how you
-                intend to drive it.
-              </p>
-            </div>
-          </article>
-          <article class="journey__step">
-            <p class="journey__when">Stage four</p>
-            <div>
-              <h3>Build</h3>
-              <p>
-                Twelve to eighteen months, documented throughout, paid in
-                stages against milestones you sign off in the workshop.
-              </p>
-            </div>
-          </article>
-          <article class="journey__step">
-            <p class="journey__when">Stage five</p>
-            <div>
-              <h3>Certification and delivery</h3>
-              <p>
-                Your car is certified, registered and handed over in Sydney, or
-                shipped worldwide.
-              </p>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <!-- ================= 7. Founders and workshop ================= -->
-      <section class="section shell" id="who">
-        <div class="split">
-          <figure class="figure">
-            <picture>
-              <source
-                type="image/webp"
-                srcset="assets/img/forest-bone-front@900.webp 900w, assets/img/forest-bone-front.webp 1600w"
-                sizes="(max-width: 54rem) 92vw, 46vw"
+                srcset="
+                  assets/img/forest-bone-front@900.webp  900w,
+                  assets/img/forest-bone-front.webp     1600w
+                "
+                sizes="(max-width: 820px) 100vw, 590px"
               />
               <img
                 src="assets/img/forest-bone-front@900.jpg"
-                srcset="assets/img/forest-bone-front@900.jpg 900w, assets/img/forest-bone-front.jpg 1600w"
-                sizes="(max-width: 54rem) 92vw, 46vw"
-                alt="Head-on view of a bone-white Antipode car with a green centre stripe on a wet forest road in fog."
+                srcset="
+                  assets/img/forest-bone-front@900.jpg  900w,
+                  assets/img/forest-bone-front.jpg     1600w
+                "
+                sizes="(max-width: 820px) 100vw, 590px"
+                alt="An ivory Antipode commission parked on a wet forest trail in fog."
                 width="900"
                 height="471"
                 loading="lazy"
                 decoding="async"
               />
             </picture>
-            <figcaption>Concept render</figcaption>
+            <figcaption>Wet Forest / First Light</figcaption>
           </figure>
-          <div class="split__text">
-            <p class="eyebrow">Who builds it</p>
-            <h2>One workshop.<br />One standard.</h2>
-            <div class="prose">
-              <p>
-                Antipode pairs a master exotic-car technician with three decades
-                under the world's most demanding marques, and a Sydney team that
-                has spent a career telling Australian stories to the world.
-              </p>
-              <p>Every car is signed by the people who built it.</p>
-            </div>
-          </div>
+          <figure class="g-half">
+            <picture>
+              <source
+                type="image/webp"
+                srcset="
+                  assets/img/outback-basalt-front@900.webp  900w,
+                  assets/img/outback-basalt-front.webp     1600w
+                "
+                sizes="(max-width: 820px) 100vw, 590px"
+              />
+              <img
+                src="assets/img/outback-basalt-front@900.jpg"
+                srcset="
+                  assets/img/outback-basalt-front@900.jpg  900w,
+                  assets/img/outback-basalt-front.jpg     1600w
+                "
+                sizes="(max-width: 820px) 100vw, 590px"
+                alt="A dark green Antipode commission on an inland dirt road in late afternoon light."
+                width="900"
+                height="471"
+                loading="lazy"
+                decoding="async"
+              />
+            </picture>
+            <figcaption>The Interior / Late Afternoon</figcaption>
+          </figure>
+          <figure class="g-wide">
+            <picture>
+              <source
+                type="image/webp"
+                srcset="
+                  assets/img/outback-ochre-rear-v2@900.webp  900w,
+                  assets/img/outback-ochre-rear-v2.webp     1600w
+                "
+                sizes="(max-width: 1200px) 100vw, 1200px"
+              />
+              <img
+                src="assets/img/outback-ochre-rear-v2.jpg"
+                srcset="
+                  assets/img/outback-ochre-rear-v2@900.jpg  900w,
+                  assets/img/outback-ochre-rear-v2.jpg     1600w
+                "
+                sizes="(max-width: 1200px) 100vw, 1200px"
+                alt="An ochre red Antipode commission on a long red dirt road at the end of the day."
+                width="1600"
+                height="851"
+                loading="lazy"
+                decoding="async"
+              />
+            </picture>
+            <figcaption>The Long Way Home</figcaption>
+          </figure>
         </div>
       </section>
 
-      <!-- ================= 8. Enquiry ================= -->
-      <section class="section shell" id="enquiry">
-        <p class="eyebrow">Enquire</p>
-        <h2>Start the conversation.</h2>
-        <p class="lede">
-          Commissions are taken in small numbers. Tell us what you have in mind
-          and we will come back to you personally.
-        </p>
-
-        <!--
-          No action set yet. Wire to the CRM endpoint before launch and add
-          server-side validation plus a spam control. See web/README.md.
-        -->
-        <form class="enquiry" method="post" action="#" novalidate>
-          <div class="field">
-            <label for="name">Name</label>
-            <input id="name" name="name" type="text" autocomplete="name" required />
-          </div>
-          <div class="field">
-            <label for="email">Email</label>
-            <input
-              id="email"
-              name="email"
-              type="email"
-              autocomplete="email"
-              required
-            />
-          </div>
-          <div class="field">
-            <label for="phone">Phone</label>
-            <input id="phone" name="phone" type="tel" autocomplete="tel" />
-          </div>
-          <div class="field">
-            <label for="location">City and country</label>
-            <input
-              id="location"
-              name="location"
-              type="text"
-              autocomplete="address-level2"
-            />
-          </div>
-          <div class="field field--wide">
-            <label for="donor">Preferred donor</label>
-            <select id="donor" name="donor">
-              <option value="undecided">Undecided</option>
-              <option value="sc">911 SC (1979&ndash;1983)</option>
-              <option value="carrera">3.2 Carrera (1984&ndash;1985)</option>
-              <option value="own">I already own a donor</option>
-            </select>
-          </div>
-          <div class="field field--wide">
-            <label for="message">Message</label>
-            <textarea id="message" name="message" rows="4"></textarea>
-          </div>
-          <p class="form-note">
-            We reply to every enquiry. Your details are not shared with anyone
-            outside Antipode.
+      <section id="details">
+        <div class="section-head left">
+          <div class="rule"></div>
+          <h2>The parts you remember.</h2>
+          <p class="lead">
+            A car is never only its outline.<span class="para-break"></span><br /><br />It
+            is the cool metal of a gear lever.<br />The first touch of worn
+            leather.<br />The weave of a seat insert. The rise in engine note<br />as
+            the road clears in front of you.<span class="para-break"></span><br /><br />Antipode
+            is built around these moments:<br />the small, physical details that
+            turn a beautiful object<br />into a car you know by heart.
           </p>
-          <div class="field--wide">
-            <button class="btn btn--accent" type="submit">Send enquiry</button>
-          </div>
-        </form>
+        </div>
 
-        <p class="notice">
-          The cars shown on this page are concept renders. Our first commission
-          is in build and no completed Antipode has yet been delivered. We would
-          rather tell you that than imply otherwise.
+        <div class="details-grid">
+          <picture>
+            <source
+              type="image/webp"
+              srcset="
+                assets/img/interior-cognac@900.webp  900w,
+                assets/img/interior-cognac.webp     1536w
+              "
+              sizes="(max-width: 820px) 92vw, 55vw"
+            />
+            <img
+              src="assets/img/interior-cognac@900.jpg"
+              srcset="
+                assets/img/interior-cognac@900.jpg  900w,
+                assets/img/interior-cognac.jpg     1536w
+              "
+              sizes="(max-width: 820px) 92vw, 55vw"
+              alt="Interior detail of an Antipode commission: cognac leather, houndstooth inserts and classic dials."
+              width="900"
+              height="558"
+              loading="lazy"
+              decoding="async"
+            />
+          </picture>
+          <picture>
+            <source
+              type="image/webp"
+              srcset="
+                assets/img/coast-dusk-motion@900.webp  900w,
+                assets/img/coast-dusk-motion.webp     1600w
+              "
+              sizes="(max-width: 820px) 92vw, 38vw"
+            />
+            <img
+              src="assets/img/coast-dusk-motion@900.jpg"
+              srcset="
+                assets/img/coast-dusk-motion@900.jpg  900w,
+                assets/img/coast-dusk-motion.jpg     1600w
+              "
+              sizes="(max-width: 820px) 92vw, 38vw"
+              alt="An Antipode commission at speed on a coastal road, headlights lit against the dusk."
+              width="900"
+              height="471"
+              loading="lazy"
+              decoding="async"
+            />
+          </picture>
+        </div>
+      </section>
+
+      <section id="commission" style="background: #e7e1d4">
+        <div class="section-head">
+          <div class="rule"></div>
+          <h2>One car. One point of view.</h2>
+          <p class="lead-center">
+            An Antipode commission begins with a conversation.<span
+              class="para-break"
+            ></span><br /><br />How will you use the car?<br />Where will it take
+            you?<br />What should it feel like in the first kilometre,<br />and in
+            the thousandth?<span class="para-break"></span><br /><br />From
+            there, a collection of choices becomes a coherent whole:<br />the
+            donor, stance, colour, cabin, materials and character.<br />The
+            process is deliberate, collaborative and unhurried.<span
+              class="para-break"
+            ></span><br /><br />The finished car is not chosen from a list.<br />It
+            is discovered over time.
+          </p>
+        </div>
+
+        <ol class="process-list">
+          <li><span>01 /</span> Conversation</li>
+          <li><span>02 /</span> Direction</li>
+          <li><span>03 /</span> Creation</li>
+          <li><span>04 /</span> Delivery</li>
+          <li><span>05 /</span> The Road Ahead</li>
+        </ol>
+      </section>
+
+      <section id="enquiry" class="cta-section">
+        <div class="rule"></div>
+        <h2>Begin with a road.</h2>
+        <p class="lead-center">
+          A limited number of private commissions are now being considered.<br />Tell
+          us where you would take yours.
         </p>
+        <a class="btn" href="mailto:commissions@antipodemotor.com"
+          >Request a Private Conversation</a
+        >
       </section>
     </main>
 
-    <footer class="site-footer">
-      <div class="shell">
-        <div class="site-footer__top">
-          <p class="wordmark" style="font-size: 0.95rem">Antipode</p>
-          <p>
-            Artarmon, Sydney, New South Wales<br />
-            <a href="mailto:commissions@antipodemotor.com"
-              >commissions@antipodemotor.com</a
-            >
-          </p>
-          <p>
-            Antipode Motor Co.<br />
-            Concept renders shown &middot; 2026
-          </p>
-        </div>
-
-        <p class="disclaimer">
-          Antipode Motor Co. is an independent restorer and is not affiliated
-          with, endorsed by, or connected to Dr. Ing. h.c. F. Porsche AG.
-          "Porsche," "911" and "Carrera" are trademarks of Porsche AG, used here
-          for descriptive purposes only. All work is carried out on vehicles
-          owned by, and at the direction of, our clients.
-        </p>
+    <footer>
+      <div class="footer-top">
+        <span>Antipode Motor Co. &middot; Sydney, Australia</span>
+        <span>Concept visualisations shown &middot; &copy; 2026</span>
       </div>
+      <p class="disclaimer">
+        Antipode Motor Co. is an independent restorer and is not affiliated with,
+        endorsed by, or connected to Dr. Ing. h.c. F. Porsche AG. "Porsche,"
+        "911" and "Carrera" are trademarks of Porsche AG, used here for
+        descriptive purposes only. All work is carried out on vehicles owned by,
+        and at the direction of, our clients. The cars shown are concept
+        visualisations; no completed Antipode commission has yet been delivered.
+      </p>
     </footer>
-
-    <script>
-      // Reveal on scroll, as progressive enhancement. Content must never be
-      // hidden unless we are certain we can show it again, so: the .reveal
-      // class is only added by JS, anything already near the viewport is
-      // revealed on the same frame, and a failsafe timer reveals everything
-      // regardless. Without JS, or with reduced motion, nothing is ever hidden.
-      (function () {
-        var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-        if (reduce || !("IntersectionObserver" in window)) return;
-
-        var targets = [].slice.call(
-          document.querySelectorAll(
-            ".section > .split, .pillars, .spec-band, .journey__step, .plate, .pull blockquote"
-          )
-        );
-        if (!targets.length) return;
-
-        function show(el) {
-          el.classList.add("is-in");
-        }
-        function showAll() {
-          targets.forEach(show);
-        }
-
-        targets.forEach(function (el) {
-          el.classList.add("reveal");
-        });
-
-        var io = new IntersectionObserver(
-          function (entries) {
-            entries.forEach(function (entry) {
-              if (entry.isIntersecting) {
-                show(entry.target);
-                io.unobserve(entry.target);
-              }
-            });
-          },
-          { rootMargin: "200px 0px 0px 0px", threshold: 0.01 }
-        );
-        targets.forEach(function (el) {
-          io.observe(el);
-        });
-
-        // Anything already on screen should not wait for a scroll event.
-        requestAnimationFrame(function () {
-          var vh = window.innerHeight;
-          targets.forEach(function (el) {
-            if (el.getBoundingClientRect().top < vh * 1.2) show(el);
-          });
-        });
-
-        // Failsafe: if anything above did not fire, reveal everything anyway.
-        window.setTimeout(showAll, 2500);
-        window.addEventListener("load", function () {
-          window.setTimeout(showAll, 600);
-        });
-      })();
-    </script>
   </body>
 </html>

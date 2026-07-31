@@ -17,7 +17,8 @@ Everything here is deliberately reversible.
 | What could kill it | `docs/05-risk-register.md` |
 | What to do in the next 90 days | `docs/06-90-day-plan.md` |
 | What is still unanswered | `docs/07-open-questions.md` |
-| Why the renders cannot be published yet | `web/ASSET-CLEARANCE.md` |
+| The adopted brand direction and voice | `docs/09-brand-direction.md` |
+| Which renders can be published, and which cannot | `web/ASSET-CLEARANCE.md` |
 
 ## The three findings that matter
 
@@ -76,6 +77,7 @@ docs/
   06-90-day-plan.md         Dated to 29 October 2026, three blocks
   07-open-questions.md      19 open items, flagged by which gate they block
   08-concept-review.md      Review of a third concept: what to adopt and reject
+  09-brand-direction.md     Adopted creative direction, voice, palette, structure
 decisions/
   ADR-0001  Staged commitment: atelier as destination, advisory as the path
   ADR-0002  G-body donor choice
@@ -87,16 +89,18 @@ model/
   output.md                 Generated report, committed so it is reviewable
   README.md                 How to run and extend it
 web/
-  index.html                Homepage, built to Plan A's content spec
-  styles.css                Charcoal / bone / ochre-red, no dependencies
+  index.html                Brand site, cinematic editorial direction
+  styles.css                Paper / ink / ochre, no dependencies
   build-images.py           Regenerates web derivatives from the masters
-  ASSET-CLEARANCE.md        Why no render is publishable yet. Read before launch
-  assets/renders/           Six masters, uncleared
+  ASSET-CLEARANCE.md        Per-render trademark status. Read before launch
+  assets/renders/           Ten masters: four cleared, six awaiting retouching
   assets/img/               Generated WebP and JPEG, two widths
 reference/
   plan-a-atelier.md         Source plan, verbatim
   plan-b-investor-grade.md  Source plan, verbatim
-  kimi-hinterland-concept.html  Third concept, verbatim
+  plan-v3-master.md         Master plan v3, verbatim (truncated at s3.5)
+  kimi-hinterland-concept.html      Third concept, verbatim
+  kimi-hinterland-concept-v2.html   Third concept, second pass, verbatim
 ```
 
 ## Running things

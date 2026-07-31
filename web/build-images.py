@@ -8,13 +8,14 @@ JPEG into web/assets/img/. Run from anywhere:
 
 Requires Pillow (`pip install Pillow`).
 
-The bottom crop exists to remove the "AI 生成" watermark that the source renders
-carry in the lower left. It is not a substitute for the retouching work in
-web/ASSET-CLEARANCE.md, which still has to happen before publication: cropping
-cannot remove a Porsche crest from a bonnet.
+Some masters carry a generator watermark in the lower left. CROP_BOTTOM below is
+a per-file map that trims just enough to remove it, and defaults to no crop, so
+clean masters are never needlessly cut down. Cropping is not a substitute for the
+retouching work in web/ASSET-CLEARANCE.md: it cannot remove a Porsche crest from
+a bonnet or a word mark from a rear panel.
 
-If the masters are replaced with cleared, de-badged versions, set CROP_BOTTOM to
-0.0 and re-run.
+When a master is replaced with a cleared, de-badged version, remove its entry
+from CROP_BOTTOM (or set it to 0.0) and re-run.
 """
 
 from __future__ import annotations
@@ -31,7 +32,18 @@ HERE = pathlib.Path(__file__).resolve().parent
 SRC = HERE / "assets" / "renders"
 OUT = HERE / "assets" / "img"
 
-CROP_BOTTOM = 0.07  # fraction trimmed off the bottom to drop the watermark strip
+# Fraction trimmed off the bottom, per master stem. Anything absent gets no crop.
+# Only the watermarked masters appear here; the v4 set is clean and stays whole.
+CROP_BOTTOM = {
+    "coast-dusk-motion": 0.07,
+    "forest-bone-front": 0.07,
+    "interior-cognac": 0.07,
+    "outback-basalt-front": 0.07,
+    "workshop-bone-rear": 0.07,
+    "interior-tan": 0.045,  # faint mark at the very bottom edge only
+}
+DEFAULT_CROP = 0.0
+
 WIDTHS = ((1600, ""), (900, "@900"))  # (target width, filename suffix)
 WEBP_QUALITY = 82
 JPEG_QUALITY = 84
@@ -47,12 +59,13 @@ def main() -> int:
         sys.exit(f"no PNG masters in {SRC}")
 
     print(f"{len(masters)} masters -> {OUT.relative_to(HERE.parent)}")
-    print(f"crop_bottom={CROP_BOTTOM:.0%}  widths={[w for w, _ in WIDTHS]}\n")
+    print(f"widths={[w for w, _ in WIDTHS]}  cropped={len(CROP_BOTTOM)} of them\n")
 
     for path in masters:
         image = Image.open(path).convert("RGB")
-        if CROP_BOTTOM:
-            keep = int(image.height * (1 - CROP_BOTTOM))
+        crop = CROP_BOTTOM.get(path.stem, DEFAULT_CROP)
+        if crop:
+            keep = int(image.height * (1 - crop))
             image = image.crop((0, 0, image.width, keep))
 
         sizes = []
@@ -75,7 +88,8 @@ def main() -> int:
             )
             sizes.append(f"{resized.width}x{resized.height}")
 
-        print(f"  {path.stem:24} {' / '.join(sizes)}")
+        mark = f"  crop {crop:.1%}" if crop else ""
+        print(f"  {path.stem:26} {' / '.join(sizes)}{mark}")
 
     total = sum(f.stat().st_size for f in OUT.iterdir())
     print(f"\n{len(list(OUT.iterdir()))} files, {total / 1e6:.1f} MB")

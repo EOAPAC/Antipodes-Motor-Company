@@ -105,6 +105,65 @@ Plan A's two-cars-in-year-one figure is presented as prudence, and it reads that
 
 I would also resist Plan A's instruction to "commission a Global Recognition Award to seed third-party credibility before any product exists." Buyers at this level are a small, connected community, and self-commissioned awards are legible as such. The credibility asset that actually converts is a car and a named technician, and Plan A's own build-journal idea is the stronger play. This is a judgement call and the founders may weigh it differently, but the downside is reputational and hard to reverse.
 
+## Plan v3, the master plan: what it settles and what it does not
+
+A third document arrived after this reconciliation was written:
+`reference/plan-v3-master.md`, styled as the definitive master plan and
+explicitly superseding the "Hinterland Ateliers / Nullarbor" working name in
+favour of Antipode Motor Co. It agrees with almost everything here, which is
+reassuring, and it changes four things.
+
+**Where it agrees.** Antipode as the name with Verrada as the pre-agreed fallback.
+G-body donors, 1979 to 1985. A$975,000 ex-donor for the Foundation series. Two
+cars in year one ramping to six by year five. A new clean JV entity. Ring-fenced
+bays inside European Galleria. The same four gaps: paint and panel, trim, an
+engineering signatory, and a design authority. The same three de-risking actions:
+VSCCS certifier on retainer, ATO private ruling on Luxury Car Tax, trademark
+clearance in class 12 and 37 before launch.
+
+**Where it moves things on.**
+
+1. **It drops the A$850,000 entry tier**, which is the same conclusion
+   `decisions/ADR-0005` reached independently, and for the same reason: it sits
+   under Theon. Its ladder is Foundation A$975k, Grande Traversée about A$1.15m,
+   and Export A$1.6m-plus. That is our two tiers plus Export, renamed.
+2. **It keeps Export as a live tier** rather than deferring it, and puts a number
+   on it: roughly A$90,000 of incremental margin per car over domestic. If that
+   number holds it is the strongest single margin lever in the plan, and it
+   deserves testing rather than deferring on scope grounds alone. Recorded as a
+   revision to consider against ADR-0005.
+3. **It sizes the capital requirement**, which neither earlier plan did:
+   A$650,000 to A$900,000 of incremental fit-out, against about A$4.2m for a
+   greenfield facility that would not break even below roughly five cars a year.
+   That is the clearest statement yet of why the existing workshop is the whole
+   basis of the venture.
+4. **It adds an EBITDA line** after ring-fenced overhead: about A$0.1m in year
+   one, A$0.6m in year three, A$1.4m in year five. Our model's lean fixed cost of
+   A$444,000 produces a year-one operating result of A$236,000 under scenario A,
+   so v3 is the more conservative of the two. Worth reconciling the overhead
+   definitions rather than assuming either is wrong.
+
+**What it does not fix.** Two things carry straight through, and they are the two
+that matter most.
+
+It repeats the labour contradiction. It states a ~35% gross margin on the same
+A$340,000 per car, which depends on the A$120/hr internal cost rate, while
+retaining the arm's-length services agreement. Nothing in v3 resolves R1, and
+until the services-agreement rate is set the 35% figure is not yet a finding.
+
+It repeats the Wiedergeboren GST error, and in a way that is now internally
+inconsistent: v3 states in its own header that all figures are GST-exclusive, then
+quotes Wiedergeboren at A$1.265m, which is the GST-inclusive number. On v3's own
+stated basis the correct figure is A$1.15m, and the wedge below it is A$175,000
+rather than A$290,000.
+
+**One practical note.** The copy supplied ends at section 3.5 while
+cross-referencing sections 5, 7.4, 10, 10.1, 10.7 and 12, including the per-car
+unit economics at 10.1, the equity structure at 10.7 and the 90-day plan at 12.
+Those sections are not in the file. The financial claims summarised above come
+from its executive summary rather than from the workings, so they cannot be
+checked yet. Request the complete document before any of its figures is relied on.
+
 ## Open items this document does not resolve
 
 Carried into `docs/07-open-questions.md`: the equity split cannot be fixed until the services-agreement rate is set; the correct legal entity and ABN for Luigi's workshop is unconfirmed and the two plans use different names for it; and which entity supplies the vehicle for ACL purposes is undecided.

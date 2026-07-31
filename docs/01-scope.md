@@ -84,6 +84,7 @@ docs/
   06-90-day-plan.md            Dated plan to 29 October 2026
   07-open-questions.md         Blocker register, gated
   08-concept-review.md         Third concept: what to adopt and what to reject
+  09-brand-direction.md        Adopted creative direction, voice, palette, structure
 decisions/
   ADR-0001  Staged commitment (atelier destination, advisory path)
   ADR-0002  G-body donor choice
@@ -103,7 +104,9 @@ web/
 reference/
   plan-a-atelier.md            Source plan, verbatim
   plan-b-investor-grade.md     Source plan, verbatim
+  plan-v3-master.md            Master plan v3, verbatim (truncated at s3.5)
   kimi-hinterland-concept.html Third concept, verbatim
+  kimi-hinterland-concept-v2.html  Third concept, second pass, verbatim
 ```
 
 ## Source documents

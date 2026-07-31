@@ -1,86 +1,90 @@
 # Render asset clearance register
 
-Status: **none of the six renders is cleared for publication.** The site markup is
-finished; the imagery is not. Read this before the site goes public, before any
-render goes into a PR wave, and before anything is posted to social.
+Reviewed 31 July 2026. Ten renders in use across `index.html`.
 
-Reviewed 31 July 2026 against the trademark rules in
-`docs/03-regulatory-and-tax.md` section 6.
+**Four are clear. Six are not.** The page stays `noindex` until every row below
+is cleared. Read this before the site goes public, before any render goes into a
+PR wave, and before anything is posted to social.
 
 ## Why this matters
 
-The Singer matter turned on website wording and presentation, not on how the cars
-were built. Porsche Cars North America, with Porsche AG, sued Singer Vehicle
-Design in February 2024 alleging unauthorised use of the 911 name, **the crest,
-the stylised logo** and the 911 trade dress. The dispute moved once Singer
-changed how it presented the cars.
+The Singer dispute turned on presentation, not engineering. Porsche Cars North
+America, with Porsche AG, sued Singer Vehicle Design in February 2024 alleging
+unauthorised use of the 911 name, **the crest, the stylised logo** and the 911
+trade dress. It moved once Singer changed how it presented the cars.
 
-Our own rule, already written down, is: no Porsche crest, no Porsche script, no
-Porsche typography, anywhere. Every render currently in `web/assets/renders/`
-breaks that rule. Publishing them as supplied would hand Porsche AG the easiest
-possible complaint, in the exact category it has already litigated.
+Our standing rule: no Porsche crest, no Porsche script, no Porsche typography,
+anywhere. Six renders currently break it.
 
-## Per-asset findings
+## Cleared
 
-Masters live in `web/assets/renders/*.png`. Web derivatives in
-`web/assets/img/` are generated from them by `web/build-images.py`.
+The v4 set arrived crest-free, plate-free and watermark-free. This is what the
+brief asked for and these four can be published once the trademark adviser signs
+off the set as a whole.
 
-| Asset | Where used | Porsche IP present | Other issues |
+| Asset | Where used | Status |
+|---|---|---|
+| `clifftop-basalt-front.png` | Hero | **Clear.** No crest, blank plate, no watermark |
+| `forest-bone-headon.png` | Full-bleed plate | **Clear.** No crest, blank plate. Retains the LED halo headlights noted below |
+| `coast-midnight-motion.png` | Gallery, "Coastal Road / Dusk" | **Clear.** No crest, blank plate |
+| `interior-tan.png` | The car, cabin | **Clear.** Plain leather wheel boss, no crest. Faint watermark at the very bottom edge, cropped 4.5% in the derivative |
+
+## Not cleared
+
+| Asset | Where used | Porsche IP present | Also |
 |---|---|---|---|
-| `coast-dusk-motion.png` | Hero | **Crest on bonnet** | Front plate reads "NULLARBOR", a name from a different concept (see `docs/08-concept-review.md`). Wide arches and whale tail read closer to a 930 Turbo than the specified subtle widebody |
-| `outback-ochre-rear.png` | The car | **"PORSCHE" script across the rear reflector panel; "Carrera" script on the engine lid** | Worst offender of the six. Two separate word marks |
-| `outback-basalt-front.png` | Full-bleed plate | **Crest on bonnet** | 930-style flares and front spoiler, beyond the specified 25 to 40 mm flare |
-| `workshop-bone-rear.png` | The build | **"Carrera 3.2" script on the rear panel** | "NULLARBOR" lettering on the engine lid, wrong brand |
-| `interior-cognac.png` | Specifications | **Crest on the steering wheel boss** | Otherwise the closest to the brief. Cognac leather, houndstooth centres, five dials, no screens |
-| `forest-bone-front.png` | Who builds it | **Crest on bonnet** | Modern LED halo headlights, which contradict the period-correct silhouette and drift toward current-model design cues. NSW plate "PRS·11B" reads as a Porsche 911 reference and should be changed |
+| `outback-ochre-rear-v2.png` | Gallery, "The Long Way Home" | **"PORSCHE" script across the rear panel; "Carrera 3.2" on the engine lid** | Revised version: watermark gone, badging unchanged. Two word marks, the worst of the set. QLD plate "82·GIB" |
+| `workshop-bone-rear.png` | The car, rear three-quarter | **"Carrera 3.2" script on the rear panel** | "NULLARBOR" lettering on the engine lid, a name from a superseded concept |
+| `outback-basalt-front.png` | Gallery, "The Interior / Late Afternoon" | **Crest on bonnet** | 930-style flares, beyond the specified 25 to 40 mm |
+| `forest-bone-front.png` | Gallery, "Wet Forest / First Light" | **Crest on bonnet** | NSW plate "PRS·11B" reads as a Porsche 911 reference. LED halo headlights |
+| `interior-cognac.png` | Details, cabin | **Crest on the steering wheel boss** | Otherwise closest to the original brief |
+| `coast-dusk-motion.png` | Details, at speed | **Crest on bonnet** | Front plate reads "NULLARBOR" |
 
-All six also carried an "AI 生成" (AI-generated) watermark in the lower left.
-The web derivatives crop the bottom 7% to remove it. **The masters still carry
-it**, so do not publish from the masters.
+All six carried an "AI 生成" watermark. Derivatives crop 7% off the bottom to
+remove it. **The masters still carry it**, so never publish from a master.
 
-## Required work before publication
+## Required work
 
-1. **Remove every crest and every word mark.** Retouch the bonnet crests, the
+1. **Remove every crest and word mark** on the six above: bonnet crests, the
    steering-wheel crest, and the "PORSCHE", "Carrera" and "Carrera 3.2" scripts.
-   Where a badge sits on a painted panel, the replacement is bare paint, not a
-   substitute badge.
-2. **Apply the Antipode identity instead**, in the discreet way the brand calls
-   for. A small rear wordmark, as the source concept did with "NULLARBOR"
-   lettering, is the right restraint. Get the placement approved once and apply it
-   consistently.
-3. **Re-plate the cars.** Remove "NULLARBOR" and "PRS·11B". Use neutral plates or
-   none.
-4. **Reconsider the LED halo headlights** in `forest-bone-front.png`. They read
-   modern, they fight the period-correct positioning, and headlight design is
-   exactly the sort of cue worth being conservative about.
-5. **Decide on the widebody**, then make the renders consistent with it. Three of
-   the six show flares closer to a 930 Turbo than the specified subtle 25 to
-   40 mm. Right now the set does not depict one coherent car, which undercuts the
-   single-design-authority principle in `docs/01-scope.md`.
-6. **Regenerate the derivatives** from the cleared masters:
-   `python3 web/build-images.py`.
-7. **Keep the "concept render" captions** until a real car exists. They are on
-   every figure now and they should stay there. Renders presented as photographs
-   of a delivered car would be a misrepresentation under the Australian Consumer
-   Law, quite apart from the trademark question.
+   Replacement is bare paint, not a substitute badge.
+2. **Re-plate.** Remove "NULLARBOR" and "PRS·11B". Blank plates, as the v4 set
+   already does.
+3. **Reconsider the LED halo headlights** in both forest renders, including the
+   cleared `forest-bone-headon`. They read modern, they fight the period-correct
+   positioning, and headlight treatment is worth being conservative about.
+4. **Settle the widebody, then make the set consistent.** Several renders show
+   flares closer to a 930 Turbo than the specified subtle 25 to 40 mm. The set
+   does not yet depict one coherent car, which undercuts the single-design-authority
+   principle in `docs/01-scope.md`. This is a design problem before it is a
+   retouching problem.
+5. **Produce the missing engine render.** The supplied direction called for an
+   engine detail in the "parts you remember" section, and no engine render exists
+   in the set. That slot currently holds a driving shot instead. The copy talks
+   about "the rise in engine note", so the image belongs.
+6. **Regenerate derivatives** after retouching: `python3 web/build-images.py`.
+   Remove each retouched file's entry from `CROP_BOTTOM` in that script, since the
+   crop only exists to hide the watermark.
+7. **Keep the "concept visualisations" wording** until a real car exists.
+   Presenting a render as a photograph of a delivered car would be a
+   misrepresentation under the Australian Consumer Law, separately from the
+   trademark question.
 
-## What is already handled in the markup
+## Already handled in the markup
 
-- The non-affiliation disclaimer is in the footer, verbatim from
+- Non-affiliation disclaimer in the footer, verbatim from
   `docs/03-regulatory-and-tax.md`, including the client-direction wording that
-  resolved the Singer dispute.
-- No render is described as "a Porsche" in alt text. The approved descriptor,
-  "a Porsche 911 reimagined by Antipode", is used once in the hero copy and once
-  in alt text; elsewhere the car is "an Antipode car".
-- Every figure carries a "concept render" caption.
-- A visible notice states that no completed car has been delivered.
-- `<meta name="robots" content="noindex, nofollow">` is set, so the page cannot
-  be indexed while the imagery is uncleared. **Remove that tag only after this
-  register is closed out.**
+  resolved the Singer dispute, and an explicit statement that no completed
+  commission has been delivered. The supplied direction had no disclaimer at all.
+- No render is described as "a Porsche" in alt text or copy. The page refers to
+  "an air-cooled 911" twice and to "an Antipode commission" throughout. The word
+  "Porsche" appears only in the trademark notice.
+- `<meta name="robots" content="noindex, nofollow">`. **Remove only after this
+  register closes.**
+- All images local. The supplied file pointed at upload-bucket S3 URLs, which
+  would have broken as soon as those expired.
 
 ## Sign-off
 
-Do not publish until both boxes are ticked.
-
-- [ ] Retouching complete, every item above addressed, derivatives regenerated
-- [ ] Reviewed by the trademark adviser engaged under `docs/06-90-day-plan.md` item 1.3
+- [ ] Six uncleared renders retouched, items 1 to 5 addressed, derivatives rebuilt
+- [ ] Full set reviewed by the trademark adviser engaged under `docs/06-90-day-plan.md` item 1.3
